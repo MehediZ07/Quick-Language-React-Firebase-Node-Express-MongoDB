@@ -39,16 +39,18 @@ const JobDetails = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const tutorId = tutor?._id;
+    const name = tutor?.name;
     const image = tutor?.image;
     const language = tutor?.language;
-    const pirce = tutor?.pirce;
+    const price = tutor?.price;
+    const review = tutor?.review;
     const tutorEmail = tutor?.email;
     const email = user?.email;
 
     // 1. if user try to add own posted tutorial;
     if (user?.email === tutor?.email)
       return Swal.fire({
-        title: "opss!",
+        title: "Info",
         text: "This is yur own posted tutorial.",
         icon: "info",
       });
@@ -67,9 +69,11 @@ const JobDetails = () => {
 
     const bookData = {
       tutorId,
+      name,
       image,
       language,
-      pirce,
+      price,
+      review,
       tutorEmail,
       email,
     };
@@ -87,9 +91,9 @@ const JobDetails = () => {
       navigate("/my-bids");
     } catch (err) {
       Swal.fire({
-        title: "Error!",
-        text: "There was an issue deleting the item.",
-        icon: "error",
+        title: "Info",
+        text: "You have already Booked this tutorial.",
+        icon: "info",
       });
     }
   };

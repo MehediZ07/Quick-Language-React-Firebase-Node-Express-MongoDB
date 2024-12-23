@@ -4,8 +4,8 @@ import { AuthContext } from "../providers/AuthProvider";
 import { Link, NavLink } from "react-router-dom";
 import TheemToggle from "./TheemToggle";
 import Headroom from "react-headroom";
-import { CiLogout } from "react-icons/ci";
-import { IoMdCart } from "react-icons/io";
+// import { CiLogout } from "react-icons/ci";
+// import { IoMdCart } from "react-icons/io";
 import { FaCircleUser } from "react-icons/fa6";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
