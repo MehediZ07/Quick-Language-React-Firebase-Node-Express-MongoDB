@@ -14,6 +14,7 @@ import BidRequests from "../pages/BidRequests";
 import AllJobs from "../pages/AllJobs";
 import MyProfile from "../pages/Authentication/MyProfile";
 import AddTutorials from "../pages/AddTutorials";
+import AllTutorial from "../pages/AllTutorial";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,8 +26,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/jobs",
-        element: <AllJobs />,
+        path: "/tutorial",
+        element: <AllTutorial />,
       },
       {
         path: "/login",

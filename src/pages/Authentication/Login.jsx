@@ -19,11 +19,16 @@ const Login = () => {
     try {
       await signInWithGoogle();
 
-      toast.success("Signin Successful");
+      toast.success(`Signin Successful`, {
+        position: "top-center",
+        autoClose: 2000,
+      });
       navigate(from, { replace: true });
     } catch (err) {
-      console.log(err);
-      toast.error(err?.message);
+      toast.error(`Invalid Gamil`, {
+        position: "top-center",
+        autoClose: 2000,
+      });
     }
   };
 
@@ -33,15 +38,19 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const pass = form.password.value;
-    console.log({ email, pass });
     try {
       //User Login
       await signIn(email, pass);
-      toast.success("Signin Successful");
+      toast.success(`Signup Successful!`, {
+        position: "top-center",
+        autoClose: 2000,
+      });
       navigate(from, { replace: true });
     } catch (err) {
-      console.log(err);
-      toast.error(err?.message);
+      toast.error(`Invalid Email Passward`, {
+        position: "top-center",
+        autoClose: 2000,
+      });
     }
   };
 

@@ -34,15 +34,6 @@ export default function MyProfile() {
         position: "top-center",
         autoClose: 2000,
       });
-      fetch(`https://assignment-10-server-two-rho.vercel.app/users`, {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(loginInfo),
-      })
-        .then((res) => res.json())
-        .then((data) => {});
       navigate("/myProfile");
       e.target.reset();
     });

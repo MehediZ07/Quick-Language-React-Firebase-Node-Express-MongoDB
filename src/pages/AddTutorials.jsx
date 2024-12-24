@@ -21,6 +21,7 @@ export default function AddTutorials() {
     const tutorialData = {
       name: user ? user?.displayName : "",
       email: user ? user?.email : "",
+      title: formData.get("title"),
       image: formData.get("image"),
       price: formData.get("price"),
       language: formData.get("language"),
@@ -98,6 +99,17 @@ export default function AddTutorials() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 ">
+                Tutorial Title
+              </label>
+              <input
+                type="text"
+                name="title"
+                placeholder="Enter title"
+                className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 ">
                 Tutorial Image
               </label>
               <input
@@ -118,15 +130,15 @@ export default function AddTutorials() {
                   name="language"
                   className="mt-1 block min-w-28 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300 focus:outline-none"
                 >
-                  <option value="english">English</option>
-                  <option value="spanish">Spanish</option>
-                  <option value="french">French</option>
-                  <option value="italian">Italian</option>
-                  <option value="chiness">Chinese</option>
-                  <option value="german">German</option>
-                  <option value="arabic">Arabic</option>
-                  <option value="japanese">Japanese</option>
-                  <option value="spenish">Spenish</option>
+                  <option value="English">English</option>
+                  <option value="Spanish">Spanish</option>
+                  <option value="French">French</option>
+                  <option value="Italian">Italian</option>
+                  <option value="Chiness">Chinese</option>
+                  <option value="German">German</option>
+                  <option value="Arabic">Arabic</option>
+                  <option value="Japanese">Japanese</option>
+                  <option value="Spenish">Spenish</option>
                 </select>
               </div>
 

@@ -137,8 +137,8 @@ const MyBids = () => {
                   {booked.map((item) => (
                     <tr key={item?._id}>
                       <tr>
-                        <td>
-                          <div className="flex items-center gap-3">
+                        <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
+                          {/* <div className="flex h-full -mt-12 items-center gap-3">
                             <div className="avatar">
                               <div className="mask mask-squircle h-12 w-12">
                                 <img
@@ -153,6 +153,14 @@ const MyBids = () => {
                                 United States
                               </div>
                             </div>
+                          </div> */}
+
+                          <div className="h-full flex items-center justify-center ">
+                            <img
+                              className="mask mask-squircle h-12 w-12"
+                              src={item?.image}
+                              alt="Avatar Tailwind CSS Component"
+                            />
                           </div>
                         </td>
                       </tr>

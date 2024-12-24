@@ -1,9 +1,6 @@
-/* eslint-disable react/prop-types */
-
 import { Link } from "react-router-dom";
 
-// import { Link } from 'react-router-dom'
-// import { format } from 'date-fns'
+// eslint-disable-next-line react/prop-types
 const JobCard = ({ data }) => {
   return (
     <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">

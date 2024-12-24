@@ -37,7 +37,7 @@ const Navbar = () => {
       <li>
         <NavLink
           className="navlink ml-1"
-          to="/jobs"
+          to="/tutorial"
           style={({ isActive }) =>
             isActive
               ? {

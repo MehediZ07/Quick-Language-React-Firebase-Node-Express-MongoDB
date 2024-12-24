@@ -137,7 +137,7 @@ const MyPostedJobs = () => {
                 <thead className="bg-gray-50">
                   <tr>
                     <th className="py-3.5 px-4  font-normal text-left text-gray-500">
-                      Image
+                      Image & Tutorial Title
                     </th>
                     <th
                       scope="col"
@@ -193,9 +193,9 @@ const MyPostedJobs = () => {
                               </div>
                             </div>
                             <div>
-                              <div className="font-bold">Hart Hagerty</div>
-                              <div className="text-sm opacity-50">
-                                United States
+                              <div className="font-bold">{item.title}</div>
+                              <div className="badge badge-secondary text-xs">
+                                NEW
                               </div>
                             </div>
                           </div>

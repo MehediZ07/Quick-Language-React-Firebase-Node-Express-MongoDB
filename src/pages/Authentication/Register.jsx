@@ -23,9 +23,17 @@ const Registration = () => {
       //2. User Registration
       const result = await createUser(email, pass);
       console.log(result);
-      await updateUserProfile(name, photo);
+      updateUserProfile({
+        displayName: name || null,
+        photoURL: photo || null,
+      }).then(() => {
+        toast.success(`Signup Successful!`, {
+          position: "top-center",
+          autoClose: 2000,
+        });
+        e.target.reset();
+      });
       setUser({ ...result.user, photoURL: photo, displayName: name });
-      toast.success("Signup Successful");
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -37,12 +45,17 @@ const Registration = () => {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithGoogle();
-
-      toast.success("Signin Successful");
+      toast.success(`Signin Successful`, {
+        position: "top-center",
+        autoClose: 2000,
+      });
       navigate("/");
     } catch (err) {
       console.log(err);
-      toast.error(err?.message);
+      toast.error(`Somthing Wrong`, {
+        position: "top-center",
+        autoClose: 2000,
+      });
     }
   };
 
@@ -50,10 +63,6 @@ const Registration = () => {
     <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl ">
         <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
-          <div className="flex justify-center mx-auto">
-            <img className="w-auto h-7 sm:h-8" src={logo} alt="" />
-          </div>
-
           <p className="mt-3 text-xl text-center text-gray-600 ">
             Get Your Free Account Now.
           </p>
@@ -109,6 +118,7 @@ const Registration = () => {
                 id="name"
                 autoComplete="name"
                 name="name"
+                required
                 className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
                 type="text"
               />
@@ -124,6 +134,7 @@ const Registration = () => {
                 id="photo"
                 autoComplete="photo"
                 name="photo"
+                required
                 className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
                 type="text"
               />
@@ -139,6 +150,7 @@ const Registration = () => {
                 id="LoggingEmailAddress"
                 autoComplete="email"
                 name="email"
+                required
                 className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
                 type="email"
               />
@@ -158,6 +170,7 @@ const Registration = () => {
                 id="loggingPassword"
                 autoComplete="current-password"
                 name="password"
+                required
                 className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
                 type="password"
               />
