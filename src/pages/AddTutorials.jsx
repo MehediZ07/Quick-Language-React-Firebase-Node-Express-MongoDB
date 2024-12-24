@@ -43,7 +43,7 @@ export default function AddTutorials() {
         icon: "success",
         confirmButtonText: "Ok",
       });
-      navigate("/my-posted-jobs");
+      navigate("/my-posted-tutorials");
       form.reset();
     } catch (err) {
       console.log(err);
@@ -134,11 +134,11 @@ export default function AddTutorials() {
                   <option value="Spanish">Spanish</option>
                   <option value="French">French</option>
                   <option value="Italian">Italian</option>
-                  <option value="Chiness">Chinese</option>
+                  <option value="Chinese">Chinese</option>
                   <option value="German">German</option>
                   <option value="Arabic">Arabic</option>
                   <option value="Japanese">Japanese</option>
-                  <option value="Spenish">Spenish</option>
+                  <option value="Spanish">Spanish</option>
                 </select>
               </div>
 

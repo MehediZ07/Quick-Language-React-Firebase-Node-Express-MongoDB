@@ -14,7 +14,7 @@ export default function TutorialCard({ data, index }) {
 }
 
 const DesignOne = ({ image, title, price, description, _id }) => (
-  <div className="w-64 p-4 rounded-2xl bg-white h-[16.5rem] relative overflow-hidden  border-2 solid border-gray-200">
+  <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200">
     {/* Curved Gradient Top */}
     <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-orange-500 to-orange-700 rounded-br-[100px]"></div>
     {/* Icon */}
@@ -25,13 +25,15 @@ const DesignOne = ({ image, title, price, description, _id }) => (
         src={image}
         alt=""
       />
-      <h3 className="text-lg mr-6 ml-4 text-center font-semibold text-white italic">
+      <h3 className=" -mt-2  mr-6 ml-4 text-center font-semibold text-white italic">
         {title}
       </h3>
     </div>
     {/* Content */}
-    <div className="relative z-10 mt-4 text-center">
-      <h3 className="text-xl font-semibold text-gray-800">${price}</h3>
+    <div className="relative z-10 mt-4 text-center flex flex-col items-center justify-center">
+      <h3 className="px-3 py-1 text-sm text-orange-600 bg-orange-100 rounded-full w-fit mt-2 text-center">
+        ${price}
+      </h3>
       <p className="text-sm text-gray-600 mt-2 h-[3.7rem]">
         {description.substring(0, 80)}...
       </p>
@@ -49,7 +51,7 @@ const DesignOne = ({ image, title, price, description, _id }) => (
 );
 
 const DesignTwo = ({ image, title, price, description, _id }) => (
-  <div className="w-64 p-4 rounded-2xl bg-white h-[16.5rem] relative overflow-hidden  border-2 solid border-gray-200">
+  <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200">
     {/* Curved Gradient Top */}
     <div
       className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-purple-500 to-purple-800
@@ -63,13 +65,15 @@ const DesignTwo = ({ image, title, price, description, _id }) => (
         src={image}
         alt=""
       />
-      <h3 className="text-lg mr-6 ml-4 text-center font-semibold text-white italic">
+      <h3 className="-mt-2 mr-6 ml-4 text-center font-semibold text-white italic">
         {title}
       </h3>
     </div>
     {/* Content */}
-    <div className="relative z-10 mt-4 text-center">
-      <h3 className="text-xl font-semibold text-gray-800">${price}</h3>
+    <div className="relative z-10 mt-4 text-center flex flex-col items-center justify-center">
+      <h3 className="px-3 py-1 text-sm text-purple-600 bg-purple-100 rounded-full w-fit mt-2 text-center">
+        ${price}
+      </h3>
       <p className="text-sm text-gray-600 mt-2 h-[3.7rem]">
         {description.substring(0, 80)}...
       </p>
@@ -87,7 +91,7 @@ const DesignTwo = ({ image, title, price, description, _id }) => (
 );
 
 const DesignThree = ({ image, title, price, description, _id }) => (
-  <div className="w-64 p-4 rounded-2xl bg-white h-[16.5rem] relative overflow-hidden  border-2 solid border-gray-200">
+  <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200">
     {/* Curved Gradient Top */}
     <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-blue-500 to-blue-800 rounded-br-[100px]"></div>
     {/* Icon */}
@@ -98,13 +102,15 @@ const DesignThree = ({ image, title, price, description, _id }) => (
         src={image}
         alt=""
       />
-      <h3 className="text-lg mr-6 ml-4 text-center font-semibold text-white italic">
+      <h3 className="-mt-2 mr-6 ml-4 text-center font-semibold text-white italic">
         {title}
       </h3>
     </div>
     {/* Content */}
-    <div className="relative z-10 mt-4 text-center">
-      <h3 className="text-xl font-semibold text-gray-800">${price}</h3>
+    <div className="relative z-10 mt-4 text-center flex flex-col items-center justify-center">
+      <h3 className="px-3 py-1 text-sm text-blue-600 bg-blue-100 rounded-full w-fit mt-2 text-center">
+        ${price}
+      </h3>
       <p className="text-sm text-gray-600 mt-2 h-[3.7rem]">
         {description.substring(0, 80)}...
       </p>
@@ -123,7 +129,7 @@ const DesignThree = ({ image, title, price, description, _id }) => (
 );
 
 const DesignFour = ({ image, title, price, description, _id }) => (
-  <div className="w-64 p-4 rounded-2xl bg-white h-[16.5rem] relative overflow-hidden  border-2 solid border-gray-200">
+  <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200">
     {/* Curved Gradient Top */}
     <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-green-400 to-green-700 rounded-br-[100px]"></div>
     {/* Icon */}
@@ -134,13 +140,15 @@ const DesignFour = ({ image, title, price, description, _id }) => (
         src={image}
         alt=""
       />
-      <h3 className="text-lg mr-6 ml-4 text-center font-semibold text-white italic">
+      <h3 className="-mt-2 mr-6 ml-4 text-center font-semibold text-white italic">
         {title}
       </h3>
     </div>
     {/* Content */}
-    <div className="relative z-10 mt-4 text-center">
-      <h3 className="text-xl font-semibold text-gray-800">${price}</h3>
+    <div className="relative z-10 mt-4 text-center flex flex-col items-center justify-center">
+      <h3 className="px-3 py-1 text-sm text-green-600 bg-green-100 rounded-full w-fit mt-2 text-center">
+        ${price}
+      </h3>
       <p className="text-sm text-gray-600 mt-2 h-[3.7rem]">
         {description.substring(0, 80)}...
       </p>

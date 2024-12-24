@@ -12,7 +12,7 @@
 //   const [count, setCount] = useState(0);
 
 //   useEffect(() => {
-//     const fetchAllJobs = async () => {
+//     const fetchAlltutor = async () => {
 //       try {
 //         const { data } = await axios.get(
 //           `${
@@ -27,7 +27,7 @@
 //         console.error("Error fetching data:", error);
 //       }
 //     };
-//     fetchAllJobs();
+//     fetchAlltutor();
 //   }, [filter, search, currentPage, sort, itemsPerPage]);
 
 //   const handleReset = () => {

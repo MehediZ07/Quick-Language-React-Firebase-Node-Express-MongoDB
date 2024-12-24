@@ -59,7 +59,7 @@ const Navbar = () => {
       <li>
         <NavLink
           className="navlink ml-1"
-          to="/add-job"
+          to="/add-tutorials"
           style={({ isActive }) =>
             isActive
               ? {
@@ -81,7 +81,7 @@ const Navbar = () => {
       <li>
         <NavLink
           className="navlink ml-1"
-          to="/my-posted-jobs"
+          to="/my-posted-tutorials"
           style={({ isActive }) =>
             isActive
               ? {
@@ -103,7 +103,7 @@ const Navbar = () => {
       <li>
         <NavLink
           className="navlink ml-1"
-          to="/my-bids"
+          to="/My-bookings"
           style={({ isActive }) =>
             isActive
               ? {

@@ -55,7 +55,7 @@ export default function AllTutorial() {
   return (
     <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
       <div>
-        <div className="grid grid-cols-3  md:grid-cols-6  justify-center items-center gap-5 max-w-4xl mx-auto">
+        <div className="grid grid-cols-3  md:grid-cols-6  justify-center items-center gap-5 max-w-7xl mx-auto">
           <select
             name="category"
             id="category"
@@ -68,11 +68,11 @@ export default function AllTutorial() {
             <option value="Spanish">Spanish</option>
             <option value="French">French</option>
             <option value="Italian">Italian</option>
-            <option value="Chiness">Chinese</option>
+            <option value="Chinese">Chinese</option>
             <option value="German">German</option>
             <option value="Arabic">Arabic</option>
             <option value="Japanese">Japanese</option>
-            <option value="Spenish">Spenish</option>
+            <option value="Spanish">Spanish</option>
           </select>
 
           <div
@@ -133,7 +133,7 @@ export default function AllTutorial() {
       </div>
 
       {/* Pagination Section */}
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex items-center mt-6 justify-center gap-2">
         <button
           className={`${
             currentPage === 0

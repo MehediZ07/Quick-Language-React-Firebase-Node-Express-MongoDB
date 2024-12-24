@@ -3,12 +3,12 @@ import { useEffect } from "react";
 
 export default function Test() {
   useEffect(() => {
-    // fetchAllJobs();
-    fetchAllJobs();
+    // fetchAlltutor();
+    fetchAlltutor();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const fetchAllJobs = async () => {
+  const fetchAlltutor = async () => {
     const { data: d } = await axios.get(
       `${import.meta.env.VITE_API_URL}/tutors`
     );

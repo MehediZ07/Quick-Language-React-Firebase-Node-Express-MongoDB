@@ -25,12 +25,12 @@ const UpdateJob = () => {
   // }, [id]);
 
   useEffect(() => {
-    // fetchAllJobs();
-    fetchAllJobs();
+    // fetchAlltutor();
+    fetchAlltutor();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
-  const fetchAllJobs = async () => {
+  const fetchAlltutor = async () => {
     const { data } = await axiosSecure.get(`/tutors/${user?.email}?id=${id}`);
     // const tutor = data.find((item) => item._id === id);
     console.log(data[0]);
@@ -83,7 +83,7 @@ const UpdateJob = () => {
         icon: "success",
         confirmButtonText: "Ok",
       });
-      navigate("/my-posted-jobs");
+      navigate("/my-posted-tutorials");
       form.reset();
     } catch (err) {
       console.log(err);
@@ -178,11 +178,11 @@ const UpdateJob = () => {
                   <option value="spanish">Spanish</option>
                   <option value="french">French</option>
                   <option value="italian">Italian</option>
-                  <option value="chiness">Chinese</option>
+                  <option value="Chinese">Chinese</option>
                   <option value="german">German</option>
                   <option value="arabic">Arabic</option>
                   <option value="japanese">Japanese</option>
-                  <option value="spenish">Spenish</option>
+                  <option value="Spanish">Spanish</option>
                 </select>
               </div>
 

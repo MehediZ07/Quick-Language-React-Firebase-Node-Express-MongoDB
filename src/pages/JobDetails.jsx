@@ -17,12 +17,12 @@ const JobDetails = () => {
   const [tutor, setTutor] = useState({});
 
   useEffect(() => {
-    // fetchAllJobs();
-    fetchAllJobs();
+    // fetchAlltutor();
+    fetchAlltutor();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const fetchAllJobs = async () => {
+  const fetchAlltutor = async () => {
     const { data: d } = await axios.get(
       `${import.meta.env.VITE_API_URL}/tutors`
     );
@@ -43,6 +43,7 @@ const JobDetails = () => {
     const image = tutor?.image;
     const language = tutor?.language;
     const price = tutor?.price;
+    const title = tutor?.title;
     const review = tutor?.review;
     const tutorEmail = tutor?.email;
     const email = user?.email;
@@ -72,6 +73,7 @@ const JobDetails = () => {
       name,
       image,
       language,
+      title,
       price,
       review,
       tutorEmail,
@@ -88,7 +90,7 @@ const JobDetails = () => {
         text: "Added to booked list.",
         icon: "success",
       });
-      navigate("/my-bids");
+      navigate("/My-bookings");
     } catch (err) {
       Swal.fire({
         title: "Info",

@@ -1,15 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-import BidTableRow from "../components/BidTableRow";
+
 import useAxiosSecure from "../hooks/useAxiosSecure";
-import { Link } from "react-router-dom";
-import { MdOutlineDeleteForever } from "react-icons/md";
-import { FaEdit } from "react-icons/fa";
+
 import ReactStars from "react-stars";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-const MyBids = () => {
+export default function MyBookings() {
   const axiosSecure = useAxiosSecure();
   const [booked, setBooked] = useState([]);
   const { user } = useContext(AuthContext);
@@ -223,6 +221,4 @@ const MyBids = () => {
       </div>
     </section>
   );
-};
-
-export default MyBids;
+}
