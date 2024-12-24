@@ -147,7 +147,13 @@ export default function TutorialDetails() {
 
       {/* Reviews Section */}
       <div className="max-w-5xl mx-auto mt-8">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">Reviews</h2>
+        <div className="flex items-center gap-x-3 mb-4">
+          <h2 className="text-lg font-medium text-gray-800 ">Total Reviews</h2>
+
+          <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
+            {review} Review
+          </span>
+        </div>
 
         {allReviews.map((review, index) => (
           <div

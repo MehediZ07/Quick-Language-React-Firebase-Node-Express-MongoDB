@@ -32,6 +32,10 @@ const router = createBrowserRouter([
         element: <AllTutorial />,
       },
       {
+        path: "/tutorial/:category",
+        element: <AllTutorial />,
+      },
+      {
         path: "/login",
         element: <Login />,
       },

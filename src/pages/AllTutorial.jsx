@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 // import JobCard from "../components/JobCard";
 import axios from "axios";
 import TutorialCard from "../components/TutorialCard";
+import { useParams } from "react-router-dom";
 
 export default function AllTutorial() {
+  const { category } = useParams();
   const [tutorial, setTutorial] = useState([]);
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState(category || "");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
@@ -81,7 +83,7 @@ export default function AllTutorial() {
           >
             <div className="flex justify-between  p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300 w-full">
               <input
-                className="px-6 py-2 w-full md:w-32 lg:w-48 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
+                className="px-6 py-2 w-full text-gray-700 placeholder-gray-500  outline-none focus:placeholder-transparent"
                 type="text"
                 name="search"
                 placeholder="Enter Job Title"
