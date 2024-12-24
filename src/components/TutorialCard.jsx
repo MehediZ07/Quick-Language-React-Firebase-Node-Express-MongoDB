@@ -4,7 +4,7 @@ export default function TutorialCard({ data, index }) {
   const designIndex = index % 4;
   console.log(data);
   return (
-    <div>
+    <div className="w-full mx-auto">
       {designIndex === 0 && <DesignOne {...data} />}
       {designIndex === 1 && <DesignTwo {...data} />}
       {designIndex === 2 && <DesignThree {...data} />}
@@ -14,7 +14,7 @@ export default function TutorialCard({ data, index }) {
 }
 
 const DesignOne = ({ image, title, price, description, _id }) => (
-  <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200">
+  <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200 mx-auto">
     {/* Curved Gradient Top */}
     <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-orange-500 to-orange-700 rounded-br-[100px]"></div>
     {/* Icon */}
@@ -51,7 +51,7 @@ const DesignOne = ({ image, title, price, description, _id }) => (
 );
 
 const DesignTwo = ({ image, title, price, description, _id }) => (
-  <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200">
+  <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200 mx-auto">
     {/* Curved Gradient Top */}
     <div
       className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-purple-500 to-purple-800
@@ -91,7 +91,7 @@ const DesignTwo = ({ image, title, price, description, _id }) => (
 );
 
 const DesignThree = ({ image, title, price, description, _id }) => (
-  <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200">
+  <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200 mx-auto">
     {/* Curved Gradient Top */}
     <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-blue-500 to-blue-800 rounded-br-[100px]"></div>
     {/* Icon */}
@@ -129,7 +129,7 @@ const DesignThree = ({ image, title, price, description, _id }) => (
 );
 
 const DesignFour = ({ image, title, price, description, _id }) => (
-  <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200">
+  <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200 mx-auto">
     {/* Curved Gradient Top */}
     <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-green-400 to-green-700 rounded-br-[100px]"></div>
     {/* Icon */}

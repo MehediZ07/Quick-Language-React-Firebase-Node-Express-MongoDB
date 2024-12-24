@@ -53,9 +53,9 @@ export default function AllTutorial() {
   console.log("Current Page:", currentPage);
 
   return (
-    <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
+    <div className="max-w-7xl   py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
       <div>
-        <div className="grid grid-cols-3  md:grid-cols-6  justify-center items-center gap-5 max-w-7xl mx-auto">
+        <div className=" grid grid-cols-3 px-6 md:grid-cols-6  justify-center items-center gap-5 max-w-7xl mx-auto">
           <select
             name="category"
             id="category"
@@ -125,7 +125,7 @@ export default function AllTutorial() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 sm:grid-cols-2 lg:grid-cols-4">
           {tutorial.map((data, index) => (
             <TutorialCard key={data._id} data={data} index={index} />
           ))}
