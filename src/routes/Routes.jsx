@@ -16,6 +16,7 @@ import MyProfile from "../pages/Authentication/MyProfile";
 import AddTutorials from "../pages/AddTutorials";
 import AllTutorial from "../pages/AllTutorial";
 import MyPostedTutorial from "../pages/MyPostedTutorial";
+import TutorialDetails from "../pages/TutorialDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
         path: "/details/:id",
         element: (
           <PrivateRoute>
-            <JobDetails />
+            <TutorialDetails />
           </PrivateRoute>
         ),
       },
