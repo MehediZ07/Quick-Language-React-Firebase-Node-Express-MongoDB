@@ -6,6 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import toast from "react-hot-toast";
 import loginLottieJSON from "../../assets/images/Login.json";
 import Lottie from "lottie-react";
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,23 +15,45 @@ const Login = () => {
   console.log(from);
   const { signIn, signInWithGoogle } = useContext(AuthContext);
 
-  // Google Signin
   const handleGoogleSignIn = async () => {
     try {
-      await signInWithGoogle();
+      // Step 1: Sign in with Google
+      const result = await signInWithGoogle(); // Ensure this returns the user data
+
+      // Step 2: Handle Google user profile update
+      const { user } = result; // Destructure user from the result of Google SignIn
 
       toast.success(`Signin Successful`, {
         position: "top-center",
         autoClose: 2000,
       });
+
+      // Step 3: Check if it's a new user and update database if necessary
+      const newUser = {
+        email: user.email,
+        name: user.displayName,
+        photo: user.photoURL,
+      };
+
+      // Send the user data to your backend API to store it
+      await axios.post(`${import.meta.env.VITE_API_URL}/users`, newUser, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      // Navigate to home page after successful sign-in
       navigate(from, { replace: true });
     } catch (err) {
-      toast.error(`Invalid Gamil`, {
+      console.log(err);
+      toast.error(`Something went wrong`, {
         position: "top-center",
         autoClose: 2000,
       });
     }
   };
+
+  // Google Signin
 
   // Email Password Signin
   const handleSignIn = async (e) => {

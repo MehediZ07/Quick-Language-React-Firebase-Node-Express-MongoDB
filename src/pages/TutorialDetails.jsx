@@ -1,18 +1,16 @@
 import axios from "axios";
-import { compareAsc, format } from "date-fns";
+
 import { useContext, useEffect, useState } from "react";
 
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import { toast } from "react-hot-toast";
+
 import Swal from "sweetalert2";
 
 export default function TutorialDetails() {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  const [startDate, setStartDate] = useState(new Date());
   const { id } = useParams();
   const [tutor, setTutor] = useState({});
 
@@ -23,14 +21,14 @@ export default function TutorialDetails() {
   }, []);
 
   const fetchAlltutor = async () => {
-    const { data: d } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/tutors`
-    );
+    // const { data: d } = await axios.get(
+    //   `${import.meta.env.VITE_API_URL}/tutors`
+    // );
     const { data } = await axios.get(
       `${import.meta.env.VITE_API_URL}/tutor?id=${id}`
     );
     // const tutor = data.find((item) => item._id === id);
-    console.log(d);
+    // console.log(d);
     setTutor(data);
     console.log(data);
   };
@@ -112,58 +110,6 @@ export default function TutorialDetails() {
     allReviews = [], // Default to an empty array if allReviews is undefined
   } = tutor;
   return (
-    // <div className="p-4 md:p-8 bg-gray-100">
-    //   {/* Tutorial Details */}
-    //   <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
-    //     <img
-    //       className="h-60 w-full md:w-1/3 object-cover"
-    //       src={image}
-    //       alt={title}
-    //     />
-    //     <div className="p-6 flex-1">
-    //       <h2 className="text-2xl font-bold mb-2">{title}</h2>
-    //       <p className="text-sm text-gray-500 mb-4">Language: {language}</p>
-    //       <p className="text-gray-700">{description}</p>
-    //       <div className="mt-4">
-    //         <span className="text-lg font-semibold">Price: </span>
-    //         <span className="text-lg text-blue-600">${price}</span>
-    //       </div>
-    //       <div className="mt-2">
-    //         <span className="text-sm text-yellow-600">{review} Review(s)</span>
-    //       </div>
-    //     </div>
-    //   </div>
-
-    //   {/* Reviews Section */}
-    //   <div className="mt-8">
-    //     <h3 className="text-xl font-semibold mb-4">Reviews</h3>
-    //     {allReviews.length === 0 ? (
-    //       <p className="text-gray-500">No reviews available.</p>
-    //     ) : (
-    //       allReviews.map((review, index) => (
-    //         <div key={index} className="bg-white shadow-md rounded-lg p-4 mb-4">
-    //           <div className="flex items-center mb-2">
-    //             <img
-    //               className="w-10 h-10 rounded-full mr-4"
-    //               src={review.image}
-    //               alt={review.name}
-    //             />
-    //             <div>
-    //               <h4 className="font-bold">{review.name}</h4>
-    //               <span className="text-sm text-gray-500">
-    //                 {new Date(review.date).toLocaleDateString()}
-    //               </span>
-    //             </div>
-    //           </div>
-    //           <p className="text-yellow-600 font-semibold">
-    //             Rating: {review.rating}
-    //           </p>
-    //           <p className="text-gray-700">{review.comment}</p>
-    //         </div>
-    //       ))
-    //     )}
-    //   </div>
-    // </div>
     <div className="p-6 bg-base-100 min-h-screen">
       {/* Tutorial Details */}
       <div className="max-w-5xl mx-auto bg-base-100 shadow-md rounded-lg overflow-hidden">
@@ -189,6 +135,12 @@ export default function TutorialDetails() {
             </div>
             <p className="text-gray-500 font-medium">Instructor: {name}</p>
             <p className="text-gray-500 italic text-sm ">Contact: {email}</p>
+            <button
+              onClick={handleSubmit}
+              className="btn mt-4 hover:bg-pink-200 bg-pink-200 text-pink-500 w-fit font-bold"
+            >
+              Book Trial Lesson
+            </button>
           </div>
         </div>
       </div>
@@ -200,7 +152,7 @@ export default function TutorialDetails() {
         {allReviews.map((review, index) => (
           <div
             key={index}
-            className="bg-base-100 shadow-md rounded-lg p-6 mb-4 flex items-start gap-4"
+            className="bg-base-100 border-2 border-gray-200 solid rounded-lg p-6 mb-4 flex items-start gap-4"
           >
             <img
               src={review.image}

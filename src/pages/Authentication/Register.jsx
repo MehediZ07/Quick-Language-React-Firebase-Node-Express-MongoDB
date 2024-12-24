@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import toast from "react-hot-toast";
 import Lottie from "lottie-react";
+import axios from "axios";
 
 const Registration = () => {
   const navigate = useNavigate();
@@ -34,6 +35,19 @@ const Registration = () => {
         e.target.reset();
       });
       setUser({ ...result.user, photoURL: photo, displayName: name });
+      // save new user info to the database
+      const newUser = { email, name, photo };
+      axios
+        .post(`${import.meta.env.VITE_API_URL}/users`, newUser, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((response) => {
+          if (response.data.insertedId) {
+            // Handle the case where the user is successfully inserted
+          }
+        });
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -44,15 +58,43 @@ const Registration = () => {
   // Google Signin
   const handleGoogleSignIn = async () => {
     try {
-      await signInWithGoogle();
+      // Step 1: Sign in with Google
+      const result = await signInWithGoogle(); // Ensure this returns the user data
+
+      // Step 2: Handle Google user profile update
+      const { user } = result; // Destructure user from the result of Google SignIn
+
       toast.success(`Signin Successful`, {
         position: "top-center",
         autoClose: 2000,
       });
+
+      // Step 3: Check if it's a new user and update database if necessary
+      const newUser = {
+        email: user.email,
+        name: user.displayName,
+        photo: user.photoURL,
+      };
+
+      // Send the user data to your backend API to store it
+      await axios.post(`${import.meta.env.VITE_API_URL}/users`, newUser, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      // Step 4: Set the user info in your app state
+      setUser({
+        ...user,
+        photoURL: user.photoURL,
+        displayName: user.displayName,
+      });
+
+      // Navigate to home page after successful sign-in
       navigate("/");
     } catch (err) {
       console.log(err);
-      toast.error(`Somthing Wrong`, {
+      toast.error(`Something went wrong`, {
         position: "top-center",
         autoClose: 2000,
       });
