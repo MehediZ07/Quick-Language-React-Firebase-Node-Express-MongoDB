@@ -16,7 +16,7 @@ export default function HeroBanner() {
     return () => clearInterval(intervalId);
   }, [currentSlide]);
   return (
-    <div className="carousel w-full h-96 ">
+    <div className="carousel w-full h-[30rem] text-black text-lg">
       {/* Slide 1 */}
       <div
         className={`carousel-item relative w-full ${
@@ -24,16 +24,17 @@ export default function HeroBanner() {
         }`}
       >
         <img
-          src="https://i.ibb.co.com/YDqp2yS/d11aecca-ce8d-49a7-b98e-adc7d5dedba7.webp"
-          className="w-full opacity-60 object-cover h-96"
+          src="https://i.ibb.co.com/wBt8cCX/istock-000021332103small.jpg"
+          className="w-full opacity-60 object-cover h-[30rem]"
           alt="Slide 1"
         />
         <div className="absolute w-full top-1/2 flex items-center  transform justify-center">
           <div className=" max-w-lg text-center -mt-20  flex flex-col items-center mx-auto">
-            <h1 className="mb-5 text-5xl font-bold">Basketball Essentials</h1>
+            <h1 className="mb-5 text-5xl font-bold">Language Horizons</h1>
             <p className="mb-5 italic font-medium">
-              Find premium basketballs, hoops, and accessories crafted for both
-              indoor and outdoor play. Gear up for your next game!
+              Embark on a journey of cultural discovery and self-growth by
+              learning languages that open up new perspectives and endless
+              possibilities.
             </p>
           </div>
         </div>
@@ -60,16 +61,17 @@ export default function HeroBanner() {
         }`}
       >
         <img
-          src="https://i.ibb.co.com/zRn5GcX/4681eecd-845b-4c61-9192-64a95919396c.webp"
-          className="w-full opacity-60 object-cover h-96"
+          src="https://i.ibb.co.com/vqN8Yps/languages.jpg"
+          className="w-full opacity-60 object-cover h-[30rem]"
           alt="Slide 2"
         />
         <div className="absolute w-full top-1/2 flex items-center  transform justify-center">
           <div className="max-w-lg -mt-24 text-center flex flex-col items-center mx-auto">
-            <h1 className="mb-5 text-5xl font-bold">Tennis & Badminton Hub</h1>
+            <h1 className="mb-5 text-5xl font-bold">Fluent Futures</h1>
             <p className="mb-5 italic font-medium">
-              Discover lightweight rackets, shuttlecocks, and tennis balls.
-              Perfect for court enthusiasts seeking top-tier equipment.
+              Empower yourself with the ability to communicate effortlessly
+              across borders, creating new pathways for personal, professional,
+              and academic success.
             </p>
           </div>
         </div>
@@ -96,17 +98,17 @@ export default function HeroBanner() {
         }`}
       >
         <img
-          src="https://i.ibb.co.com/ZXwKG6x/f4d2ddb9-baed-4842-b8a0-2fc0706aff81.webp"
-          className="w-full opacity-60 object-cover h-96"
+          src="https://i.ibb.co.com/4VQmGbS/language-think.webp"
+          className="w-full opacity-60 object-cover h-[30rem]"
           alt="Slide 3"
         />
         <div className="absolute w-full top-1/2 flex items-center  transform justify-center">
           <div className="max-w-lg -mt-20 text-center flex flex-col items-center mx-auto">
-            <h1 className="mb-5 text-5xl font-bold"> Cricket Gear Zone</h1>
+            <h1 className="mb-5 text-5xl font-bold">Speak the World</h1>
             <p className="mb-5 italic font-medium">
-              Explore top-quality cricket equipment, from bats to gloves.
-              Perfect for players of all levels, designed for performance and
-              comfort.
+              Unlock the doors to global communication with our immersive
+              language courses, designed to help you connect with people,
+              cultures, and opportunities worldwide.
             </p>
           </div>
         </div>
@@ -133,19 +135,16 @@ export default function HeroBanner() {
         }`}
       >
         <img
-          src="https://i.ibb.co.com/1J2Dgw9/v2-8p4u2-a1ftg.jpg"
-          className="w-full opacity-60 object-cover h-96"
+          src="https://i.ibb.co.com/BVkfhcD/Blog-how-to-set-your-language-in-COOL-01.png"
+          className="w-full opacity-60 object-cover h-[30rem]"
           alt="Slide 4"
         />
         <div className="absolute w-full top-1/2 flex items-center  transform justify-center">
           <div className="max-w-lg -mt-24 text-center flex flex-col items-center mx-auto">
-            <h1 className="mb-5 text-5xl font-bold">
-              {" "}
-              Football Shoes & Accessories
-            </h1>
+            <h1 className="mb-5 text-5xl font-bold "> Voices of the Globe</h1>
             <p className="mb-5 italic font-medium">
-              Step into style and performance with our versatile collection of
-              sports shoes. Designed for athletes and everyday comfort.
+              Discover the beauty of diverse languages and gain the skills to
+              converse confidently with people from every corner of the world.
             </p>
           </div>
         </div>
