@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// import JobCard from "../components/JobCard";
+
 import axios from "axios";
 import TutorialCard from "../components/TutorialCard";
 import { useParams } from "react-router-dom";
@@ -23,7 +23,6 @@ export default function AllTutorial() {
           }/all-tutors?filter=${filter}&search=${search}&sort=${sort}&page=${currentPage}&size=${itemsPerPage}`
         );
 
-        console.log("Jobs Data:", data);
         setTutorial(data.result);
         setCount(data.totalCount);
       } catch (error) {
@@ -42,17 +41,13 @@ export default function AllTutorial() {
   };
 
   const handleItemsPerPage = (e) => {
-    const val = parseInt(e.target.value, 10); // Parse the value as an integer
-    setItemsPerPage(val); // Update the number of items per page
-    setCurrentPage(0); // Reset to the first page
+    const val = parseInt(e.target.value, 10);
+    setItemsPerPage(val);
+    setCurrentPage(0);
   };
 
   const numberOfPages = Math.ceil(count / itemsPerPage);
   const pages = [...Array(numberOfPages).keys()];
-
-  console.log("Count:", count);
-  console.log("Number of Pages:", numberOfPages);
-  console.log("Current Page:", currentPage);
 
   return (
     <div className="max-w-7xl   py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">

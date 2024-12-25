@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import toast from "react-hot-toast";
+
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
@@ -19,12 +19,11 @@ export default function MyPostedTutorial() {
 
   const fetchAlltutor = async () => {
     const { data } = await axiosSecure.get(`/tutors/${user?.email}`);
-    console.log(data);
+
     setTutors(data);
   };
 
   const handleDelete = async (_id) => {
-    // Using Swal.fire for confirmation
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -36,29 +35,23 @@ export default function MyPostedTutorial() {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          // Await the axiosSecure delete request
           const response = await axiosSecure.delete(`/tutors/${_id}`);
-          console.log("Item deleted successfully:", response.data);
 
           if (response.data) {
-            // If the deletion was successful, show success message
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",
               icon: "success",
             });
 
-            // Call the function to update the UI
             fetchAlltutor();
           }
         } catch (error) {
-          // Error handling
           console.error(
             "Error deleting item:",
             error.response ? error.response.data : error.message
           );
 
-          // Optionally, show an error message
           Swal.fire({
             title: "Error!",
             text: "There was an issue deleting the item.",

@@ -1,6 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import bgImg from "../../assets/images/login.jpg";
-import logo from "../../assets/images/logo.png";
+
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import toast from "react-hot-toast";
@@ -12,40 +11,34 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state || "/";
-  console.log(from);
+
   const { signIn, signInWithGoogle } = useContext(AuthContext);
 
   const handleGoogleSignIn = async () => {
     try {
-      // Step 1: Sign in with Google
-      const result = await signInWithGoogle(); // Ensure this returns the user data
+      const result = await signInWithGoogle();
 
-      // Step 2: Handle Google user profile update
-      const { user } = result; // Destructure user from the result of Google SignIn
+      const { user } = result;
 
       toast.success(`Signin Successful`, {
         position: "top-center",
         autoClose: 2000,
       });
 
-      // Step 3: Check if it's a new user and update database if necessary
       const newUser = {
         email: user.email,
         name: user.displayName,
         photo: user.photoURL,
       };
 
-      // Send the user data to your backend API to store it
       await axios.post(`${import.meta.env.VITE_API_URL}/users`, newUser, {
         headers: {
           "Content-Type": "application/json",
         },
       });
 
-      // Navigate to home page after successful sign-in
       navigate(from, { replace: true });
     } catch (err) {
-      console.log(err);
       toast.error(`Something went wrong`, {
         position: "top-center",
         autoClose: 2000,
@@ -53,16 +46,12 @@ const Login = () => {
     }
   };
 
-  // Google Signin
-
-  // Email Password Signin
   const handleSignIn = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const pass = form.password.value;
     try {
-      //User Login
       await signIn(email, pass);
       toast.success(`Signup Successful!`, {
         position: "top-center",
@@ -80,20 +69,11 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-base-100 rounded-lg shadow-lg  lg:max-w-4xl ">
-        <div
-          className="hidden bg-cover bg-center lg:block lg:w-1/2"
-          // style={{
-          //   backgroundImage: `url(${bgImg})`,
-          // }}
-        >
+        <div className="hidden bg-cover bg-center lg:block lg:w-1/2">
           <Lottie animationData={loginLottieJSON}></Lottie>
         </div>
 
         <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
-          <div className="flex justify-center mx-auto">
-            <img className="w-auto h-7 sm:h-8" src={logo} alt="" />
-          </div>
-
           <p className="mt-3 text-xl text-center text-gray-600 ">
             Welcome back!
           </p>

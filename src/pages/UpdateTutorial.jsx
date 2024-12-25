@@ -1,10 +1,9 @@
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
+
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import toast from "react-hot-toast";
+
 import Lottie from "lottie-react";
 
 import addTutorLootie from "../assets/images/AddTutor.json";
@@ -12,56 +11,32 @@ import addTutorLootie from "../assets/images/AddTutor.json";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 
-const UpdateJob = () => {
+export default function UpdateTutorial() {
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const { id } = useParams();
-  const [startDate, setStartDate] = useState(new Date());
+
   const [tutor, setTutor] = useState({});
-  // useEffect(() => {
-  //   fetchJobData();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [id]);
 
   useEffect(() => {
-    // fetchAlltutor();
     fetchAlltutor();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const fetchAlltutor = async () => {
     const { data } = await axiosSecure.get(`/tutors/${user?.email}?id=${id}`);
-    // const tutor = data.find((item) => item._id === id);
-    console.log(data[0]);
+
     setTutor(data[0]);
   };
 
-  // useEffect(() => {
-  //   fetch(`${import.meta.env.VITE_API_URL}/tutors`)
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("Failed to fetch");
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((json) => {
-  //       setJob(json);
-  //       console.log(json);
-  //     })
-  //     // eslint-disable-next-line no-unused-vars
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [id]);
+  //
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Use FormData to collect form field values
     const formData = new FormData(e.target);
     const form = e.target;
-    // Extract values by field names
 
     const tutorialData = {
       image: formData.get("image"),
@@ -72,10 +47,7 @@ const UpdateJob = () => {
     };
 
     try {
-      // 1. make a post request
-
       await axiosSecure.put(`/update-tutors/${id}`, tutorialData);
-      // 2. Reset form
 
       Swal.fire({
         title: "Success!",
@@ -86,7 +58,6 @@ const UpdateJob = () => {
       navigate("/my-posted-tutorials");
       form.reset();
     } catch (err) {
-      console.log(err);
       Swal.fire({
         title: "Error!",
         text: "Somthing Wrong",
@@ -95,7 +66,6 @@ const UpdateJob = () => {
       });
     }
   };
-
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
       <div className="flex w-full max-w-sm sm:max-w-2xl  mx-auto overflow-hidden bg-base-100 rounded-lg shadow-lg  md:max-w-6xl ">
@@ -243,6 +213,4 @@ const UpdateJob = () => {
       </div>
     </div>
   );
-};
-
-export default UpdateJob;
+}

@@ -14,12 +14,11 @@ export default function MyBookings() {
   const [rating, setRating] = useState(0);
 
   const handleRatingChange = (newRating) => {
-    setRating(newRating); // Update the rating state
-    console.log("New Rating:", newRating);
+    setRating(newRating);
   };
   const fetchAllBids = async () => {
     const { data } = await axiosSecure.get(`/booked/${user?.email}`);
-    // setBids(data);\
+
     setBooked(data);
   };
   useEffect(() => {
@@ -42,17 +41,12 @@ export default function MyBookings() {
       comment: comment,
     };
 
-    console.log("Sending the following data:", tutorialData);
-    console.log("API URL:", `${import.meta.env.VITE_API_URL}/add-review`);
-
     try {
-      // Make the PUT request to add the review
       const response = await axios.put(
         `${import.meta.env.VITE_API_URL}/add-review`,
         tutorialData
       );
 
-      // Check the response status
       if (response.data.success) {
         Swal.fire({
           title: "Success!",
@@ -61,11 +55,9 @@ export default function MyBookings() {
           confirmButtonText: "Ok",
         });
 
-        // Optionally, reset the form
         e.target.reset();
       }
     } catch (err) {
-      console.error(err);
       Swal.fire({
         title: "Error!",
         text: err.response?.data?.error || "Something went wrong.",
@@ -117,18 +109,6 @@ export default function MyBookings() {
                     <th className="py-3.5 pl-[5.6rem] px-4 text-sm font-normal text-left text-gray-500">
                       Review
                     </th>
-                    {/* <th
-                      scope="col"
-                      className="py-3.5 px-4 text-sm font-normal text-left text-gray-500"
-                    >
-                      Description
-                    </th>
-                    <th
-                      scope="col"
-                      className="py-3.5 px-4 text-sm font-normal text-left text-gray-500"
-                    >
-                      Make Change
-                    </th> */}
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
@@ -163,7 +143,6 @@ export default function MyBookings() {
                         {item?.language}
                       </td>
 
-                      {/* <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap"></td> */}
                       <td className=" justify-center gap-2 px-4 py-4 flex items-center text-sm text-gray-500 whitespace-nowrap">
                         <div className="mb-4">
                           <p>Rating</p>
@@ -176,14 +155,14 @@ export default function MyBookings() {
                               halfIcon={<i className="fa fa-star-half-alt"></i>}
                               fullIcon={<i className="fa fa-star"></i>}
                               activeColor="#ffcc26"
-                              value="0" // Controlled by state
-                              onChange={handleRatingChange} // Callback to handle value change
+                              value="0"
+                              onChange={handleRatingChange}
                             />
                           </h2>
                         </div>
                         <form
                           className="flex items-center gap-2 justify-center"
-                          onSubmit={handleAddReview} // Changed to onSubmit
+                          onSubmit={handleAddReview}
                         >
                           <div>
                             <textarea

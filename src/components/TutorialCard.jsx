@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function TutorialCard({ data, index }) {
   const designIndex = index % 4;
-  // console.log(data);
+
   return (
     <div className="w-full mx-auto">
       {designIndex === 0 && <DesignOne {...data} />}
@@ -15,11 +15,9 @@ export default function TutorialCard({ data, index }) {
 
 const DesignOne = ({ image, title, price, description, _id }) => (
   <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200 mx-auto">
-    {/* Curved Gradient Top */}
     <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-orange-500 to-orange-700 rounded-br-[100px]"></div>
-    {/* Icon */}
+
     <div className="relative z-10 flex justify-between items-center">
-      {/* <div className="text-6xl text-white">&#60;&#47;&#62;</div> */}
       <img
         className="w-16 h-16 rounded-full object-cover "
         src={image}
@@ -29,7 +27,7 @@ const DesignOne = ({ image, title, price, description, _id }) => (
         {title}
       </h3>
     </div>
-    {/* Content */}
+
     <div className="relative z-10 mt-4 text-center flex flex-col items-center justify-center">
       <h3 className="px-3 py-1 text-sm text-orange-600 bg-orange-100 rounded-full w-fit mt-2 text-center">
         ${price}
@@ -38,7 +36,7 @@ const DesignOne = ({ image, title, price, description, _id }) => (
         {description.substring(0, 80)}...
       </p>
     </div>
-    {/* Button */}
+
     <div className="relative z-10 mt-6 flex justify-center">
       <Link
         to={`/details/${_id}`}
@@ -52,14 +50,12 @@ const DesignOne = ({ image, title, price, description, _id }) => (
 
 const DesignTwo = ({ image, title, price, description, _id }) => (
   <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200 mx-auto">
-    {/* Curved Gradient Top */}
     <div
       className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-purple-500 to-purple-800
    rounded-br-[100px]"
     ></div>
-    {/* Icon */}
+
     <div className="relative z-10 flex justify-between items-center">
-      {/* <div className="text-6xl text-white">&#60;&#47;&#62;</div> */}
       <img
         className="w-16 h-16 rounded-full object-cover "
         src={image}
@@ -69,7 +65,7 @@ const DesignTwo = ({ image, title, price, description, _id }) => (
         {title}
       </h3>
     </div>
-    {/* Content */}
+
     <div className="relative z-10 mt-4 text-center flex flex-col items-center justify-center">
       <h3 className="px-3 py-1 text-sm text-purple-600 bg-purple-100 rounded-full w-fit mt-2 text-center">
         ${price}
@@ -78,7 +74,7 @@ const DesignTwo = ({ image, title, price, description, _id }) => (
         {description.substring(0, 80)}...
       </p>
     </div>
-    {/* Button */}
+
     <div className="relative z-10 mt-6 flex justify-center">
       <Link
         to={`/details/${_id}`}
@@ -92,11 +88,9 @@ const DesignTwo = ({ image, title, price, description, _id }) => (
 
 const DesignThree = ({ image, title, price, description, _id }) => (
   <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200 mx-auto">
-    {/* Curved Gradient Top */}
     <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-blue-500 to-blue-800 rounded-br-[100px]"></div>
-    {/* Icon */}
+
     <div className="relative z-10 flex justify-between items-center">
-      {/* <div className="text-6xl text-white">&#60;&#47;&#62;</div> */}
       <img
         className="w-16 h-16 rounded-full object-cover "
         src={image}
@@ -106,7 +100,7 @@ const DesignThree = ({ image, title, price, description, _id }) => (
         {title}
       </h3>
     </div>
-    {/* Content */}
+
     <div className="relative z-10 mt-4 text-center flex flex-col items-center justify-center">
       <h3 className="px-3 py-1 text-sm text-blue-600 bg-blue-100 rounded-full w-fit mt-2 text-center">
         ${price}
@@ -115,7 +109,7 @@ const DesignThree = ({ image, title, price, description, _id }) => (
         {description.substring(0, 80)}...
       </p>
     </div>
-    {/* Button */}
+
     <div className="relative z-10 mt-6 flex justify-center">
       <Link
         to={`/details/${_id}`}
@@ -130,11 +124,9 @@ const DesignThree = ({ image, title, price, description, _id }) => (
 
 const DesignFour = ({ image, title, price, description, _id }) => (
   <div className="w-64 p-4 rounded-2xl bg-white h-[17rem] relative overflow-hidden  border-2 solid border-gray-200 mx-auto">
-    {/* Curved Gradient Top */}
     <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-green-400 to-green-700 rounded-br-[100px]"></div>
-    {/* Icon */}
+
     <div className="relative z-10 flex justify-between items-center">
-      {/* <div className="text-6xl text-white">&#60;&#47;&#62;</div> */}
       <img
         className="w-16 h-16 rounded-full object-cover "
         src={image}
@@ -144,7 +136,7 @@ const DesignFour = ({ image, title, price, description, _id }) => (
         {title}
       </h3>
     </div>
-    {/* Content */}
+
     <div className="relative z-10 mt-4 text-center flex flex-col items-center justify-center">
       <h3 className="px-3 py-1 text-sm text-green-600 bg-green-100 rounded-full w-fit mt-2 text-center">
         ${price}
@@ -153,7 +145,7 @@ const DesignFour = ({ image, title, price, description, _id }) => (
         {description.substring(0, 80)}...
       </p>
     </div>
-    {/* Button */}
+
     <div className="relative z-10 mt-6 flex justify-center">
       <Link
         to={`/details/${_id}`}

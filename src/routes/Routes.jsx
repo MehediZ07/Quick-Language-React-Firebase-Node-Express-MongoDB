@@ -6,7 +6,6 @@ import Register from "../pages/Authentication/Register";
 
 import ErrorPage from "../pages/ErrorPage";
 
-import UpdateJob from "../pages/UpdateJob";
 import PrivateRoute from "./PrivateRoute";
 
 import MyProfile from "../pages/Authentication/MyProfile";
@@ -15,6 +14,7 @@ import AllTutorial from "../pages/AllTutorial";
 import MyPostedTutorial from "../pages/MyPostedTutorial";
 import TutorialDetails from "../pages/TutorialDetails";
 import MyBookings from "../pages/MyBookings";
+import UpdateTutorial from "../pages/UpdateTutorial";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: (
           <PrivateRoute>
-            <UpdateJob />
+            <UpdateTutorial />
           </PrivateRoute>
         ),
       },

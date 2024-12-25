@@ -13,10 +13,8 @@ export default function AddTutorials() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Use FormData to collect form field values
     const formData = new FormData(e.target);
     const form = e.target;
-    // Extract values by field names
 
     const tutorialData = {
       name: user ? user?.displayName : "",
@@ -30,12 +28,10 @@ export default function AddTutorials() {
     };
 
     try {
-      // 1. make a post request
       await axios.post(
         `${import.meta.env.VITE_API_URL}/add-tutor`,
         tutorialData
       );
-      // 2. Reset form
 
       Swal.fire({
         title: "Success!",
@@ -46,7 +42,6 @@ export default function AddTutorials() {
       navigate("/my-posted-tutorials");
       form.reset();
     } catch (err) {
-      console.log(err);
       Swal.fire({
         title: "Error!",
         text: "Somthing Wrong",

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import TutorialCard from "./TutorialCard";
-import { Link } from "react-router-dom";
+
 import Marquee from "react-fast-marquee";
 export default function Tutorial() {
   const [tutorial, setTutorial] = useState([]);
@@ -10,7 +10,7 @@ export default function Tutorial() {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_URL}/tutors`
       );
-      console.log(data);
+
       setTutorial(data);
     };
     fetchAlltutor();
@@ -38,17 +38,6 @@ export default function Tutorial() {
           </div>
         ))}
       </Marquee>
-      {/* <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 sm:grid-cols-2 lg:grid-cols-4  max-w-7xl mx-auto w-full mb-4">
-        {tutors.map((data, index) => (
-          <TutorialCard key={data._id} data={data} index={index} />
-        ))}
-      </div> */}
-      {/* <Link
-        to="/tutorial"
-        className="btn mt-4 text-xl hover:bg-pink-200 bg-pink-200 text-pink-500 w-fit font-bold"
-      >
-        View More
-      </Link> */}
     </div>
   );
 }

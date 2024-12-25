@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import ragistrationLottieJSON from "../../assets/images/Registration.json";
-import logo from "../../assets/images/logo.png";
+
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import toast from "react-hot-toast";
@@ -19,11 +19,10 @@ const Registration = () => {
     const name = form.name.value;
     const photo = form.photo.value;
     const pass = form.password.value;
-    console.log({ email, pass, name, photo });
+
     try {
-      //2. User Registration
       const result = await createUser(email, pass);
-      console.log(result);
+
       updateUserProfile({
         displayName: name || null,
         photoURL: photo || null,
@@ -35,7 +34,7 @@ const Registration = () => {
         e.target.reset();
       });
       setUser({ ...result.user, photoURL: photo, displayName: name });
-      // save new user info to the database
+
       const newUser = { email, name, photo };
       axios
         .post(`${import.meta.env.VITE_API_URL}/users`, newUser, {
@@ -50,50 +49,41 @@ const Registration = () => {
         });
       navigate("/");
     } catch (err) {
-      console.log(err);
       toast.error(err?.message);
     }
   };
 
-  // Google Signin
   const handleGoogleSignIn = async () => {
     try {
-      // Step 1: Sign in with Google
-      const result = await signInWithGoogle(); // Ensure this returns the user data
+      const result = await signInWithGoogle();
 
-      // Step 2: Handle Google user profile update
-      const { user } = result; // Destructure user from the result of Google SignIn
+      const { user } = result;
 
       toast.success(`Signin Successful`, {
         position: "top-center",
         autoClose: 2000,
       });
 
-      // Step 3: Check if it's a new user and update database if necessary
       const newUser = {
         email: user.email,
         name: user.displayName,
         photo: user.photoURL,
       };
 
-      // Send the user data to your backend API to store it
       await axios.post(`${import.meta.env.VITE_API_URL}/users`, newUser, {
         headers: {
           "Content-Type": "application/json",
         },
       });
 
-      // Step 4: Set the user info in your app state
       setUser({
         ...user,
         photoURL: user.photoURL,
         displayName: user.displayName,
       });
 
-      // Navigate to home page after successful sign-in
       navigate("/");
     } catch (err) {
-      console.log(err);
       toast.error(`Something went wrong`, {
         position: "top-center",
         autoClose: 2000,
@@ -240,12 +230,7 @@ const Registration = () => {
             <span className="w-1/5 border-b  md:w-1/4"></span>
           </div>
         </div>
-        <div
-          className="hidden bg-cover bg-center  lg:w-1/2 lg:flex justify-center items-center"
-          // style={{
-          //   backgroundImage: `url(${bgImg})`,
-          // }}
-        >
+        <div className="hidden bg-cover bg-center  lg:w-1/2 lg:flex justify-center items-center">
           <Lottie animationData={ragistrationLottieJSON}></Lottie>
         </div>
       </div>

@@ -21,10 +21,8 @@ export default function State() {
   };
 
   const review = tutorials?.map((obj) => obj.review);
-  console.log(review);
 
   const totalReview = review?.reduce((sum, review) => sum + review, 0);
-  console.log(totalReview);
 
   const language = tutorials?.map((obj) => obj.language);
 

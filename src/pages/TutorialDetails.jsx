@@ -15,25 +15,18 @@ export default function TutorialDetails() {
   const [tutor, setTutor] = useState({});
 
   useEffect(() => {
-    // fetchAlltutor();
     fetchAlltutor();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchAlltutor = async () => {
-    // const { data: d } = await axios.get(
-    //   `${import.meta.env.VITE_API_URL}/tutors`
-    // );
     const { data } = await axios.get(
       `${import.meta.env.VITE_API_URL}/tutor?id=${id}`
     );
-    // const tutor = data.find((item) => item._id === id);
-    // console.log(d);
+
     setTutor(data);
-    console.log(data);
   };
 
-  // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     const tutorId = tutor?._id;
@@ -54,18 +47,6 @@ export default function TutorialDetails() {
         icon: "info",
       });
 
-    // // 1. Deadline crossed validation
-    // if (compareAsc(new Date(), new Date(deadline)) === 1)
-    //   return toast.error("Deadline Crossed, Bidding Forbidden!");
-
-    // // 2. Price within maximum price range validation
-    // if (price > max_price)
-    //   return toast.error("Offer less or at least equal to maximum price!");
-
-    // // 3. offered deadline is within sellers deadline validation
-    // if (compareAsc(new Date(startDate), new Date(deadline)) === 1)
-    //   return toast.error("Offer a date within deadline");
-
     const bookData = {
       tutorId,
       name,
@@ -79,10 +60,8 @@ export default function TutorialDetails() {
     };
 
     try {
-      // 1. make a post request
       await axios.post(`${import.meta.env.VITE_API_URL}/add-book`, bookData);
 
-      // 3. Show Swal and navigate
       Swal.fire({
         title: "Congratulation!",
         text: "Added to booked list.",
@@ -107,7 +86,7 @@ export default function TutorialDetails() {
     description,
     review,
     email,
-    allReviews = [], // Default to an empty array if allReviews is undefined
+    allReviews = [],
   } = tutor;
   return (
     <div className="p-6 bg-base-100 min-h-screen">
