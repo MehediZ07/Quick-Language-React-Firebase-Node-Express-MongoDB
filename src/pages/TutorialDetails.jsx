@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 
 export default function TutorialDetails() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const { id } = useParams();
   const [tutor, setTutor] = useState({});
@@ -20,13 +21,12 @@ export default function TutorialDetails() {
   }, []);
 
   const fetchAlltutor = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/tutor?id=${id}`
-    );
+    const { data } = await axios.get(`http://localhost:5000/tutor?id=${id}`);
 
     setTutor(data);
+    setLoading(false);
   };
-
+  if (loading) return <span className="loading loading-dots loading-lg"></span>;
   const handleSubmit = async (e) => {
     e.preventDefault();
     const tutorId = tutor?._id;
@@ -60,7 +60,7 @@ export default function TutorialDetails() {
     };
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/add-book`, bookData);
+      await axios.post(`http://localhost:5000/add-book`, bookData);
 
       Swal.fire({
         title: "Congratulation!",

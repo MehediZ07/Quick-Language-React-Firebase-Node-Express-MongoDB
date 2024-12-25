@@ -31,7 +31,7 @@ const Login = () => {
         photo: user.photoURL,
       };
 
-      await axios.post(`${import.meta.env.VITE_API_URL}/users`, newUser, {
+      await axios.post(`http://localhost:5000/users`, newUser, {
         headers: {
           "Content-Type": "application/json",
         },

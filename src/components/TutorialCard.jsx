@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function TutorialCard({ data, index }) {
   const designIndex = index % 4;
-
+  if (!data) return <span className="loading loading-dots loading-lg"></span>;
   return (
     <div className="w-full mx-auto">
       {designIndex === 0 && <DesignOne {...data} />}

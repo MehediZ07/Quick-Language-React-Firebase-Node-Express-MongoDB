@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import { FaEdit } from "react-icons/fa";
 import { MdOutlineDeleteForever } from "react-icons/md";
 export default function MyPostedTutorial() {
+  const [loading, setLoading] = useState(true);
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
 
@@ -21,8 +22,10 @@ export default function MyPostedTutorial() {
     const { data } = await axiosSecure.get(`/tutors/${user?.email}`);
 
     setTutors(data);
+    setLoading(false);
   };
 
+  if (loading) return <span className="loading loading-dots loading-lg"></span>;
   const handleDelete = async (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -78,7 +81,7 @@ export default function MyPostedTutorial() {
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
             <div className="overflow-hidden border border-gray-200 md:rounded-lg">
               <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+                <thead className="bg-base-200">
                   <tr>
                     <th className="py-3.5 px-4  font-normal text-left text-gray-500">
                       Image & Tutorial Title
@@ -122,7 +125,7 @@ export default function MyPostedTutorial() {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="bg-base-100 divide-y divide-gray-200">
                   {tutors.map((item) => (
                     <tr key={item._id}>
                       <td>

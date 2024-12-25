@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 
 export default function AllTutorial() {
   const { category } = useParams();
+  const [loading, setLoading] = useState(true);
   const [tutorial, setTutorial] = useState([]);
   const [filter, setFilter] = useState(category || "");
   const [search, setSearch] = useState("");
@@ -18,13 +19,12 @@ export default function AllTutorial() {
     const fetchAllTutorial = async () => {
       try {
         const { data } = await axios.get(
-          `${
-            import.meta.env.VITE_API_URL
-          }/all-tutors?filter=${filter}&search=${search}&sort=${sort}&page=${currentPage}&size=${itemsPerPage}`
+          `http://localhost:5000/all-tutors?filter=${filter}&search=${search}&sort=${sort}&page=${currentPage}&size=${itemsPerPage}`
         );
 
         setTutorial(data.result);
         setCount(data.totalCount);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -32,6 +32,7 @@ export default function AllTutorial() {
     fetchAllTutorial();
   }, [filter, search, currentPage, sort, itemsPerPage]);
 
+  if (loading) return <span className="loading loading-dots loading-lg"></span>;
   const handleReset = () => {
     setFilter("");
     setSearch("");
@@ -127,7 +128,7 @@ export default function AllTutorial() {
         </div>
 
         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 sm:grid-cols-2 lg:grid-cols-4">
-          {tutorial.map((data, index) => (
+          {tutorial?.map((data, index) => (
             <TutorialCard key={data._id} data={data} index={index} />
           ))}
         </div>

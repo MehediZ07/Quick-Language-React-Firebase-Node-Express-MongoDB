@@ -4,19 +4,23 @@ import TutorialCard from "./TutorialCard";
 
 import Marquee from "react-fast-marquee";
 export default function Tutorial() {
+  const [loading, setLoading] = useState(true);
   const [tutorial, setTutorial] = useState([]);
   useEffect(() => {
     const fetchAlltutor = async () => {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/tutors`
-      );
+      const { data } = await axios.get(`http://localhost:5000/tutors`);
 
       setTutorial(data);
     };
     fetchAlltutor();
+    setLoading(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // console.log(tutorial);
+  if (loading) return <span className="loading loading-dots loading-lg"></span>;
+  if (!tutorial)
+    return <span className="loading loading-dots loading-lg"></span>;
   return (
     <div className="max-w-7xl mx-auto  my-6">
       <div className="mb-8">
@@ -32,7 +36,7 @@ export default function Tutorial() {
         gradient={true}
         gradientWidth={100}
       >
-        {tutorial.map((data, index) => (
+        {tutorial?.map((data, index) => (
           <div className="ml-6" key={data._id}>
             <TutorialCard data={data} index={index} />
           </div>

@@ -28,10 +28,7 @@ export default function AddTutorials() {
     };
 
     try {
-      await axios.post(
-        `${import.meta.env.VITE_API_URL}/add-tutor`,
-        tutorialData
-      );
+      await axios.post(`http://localhost:5000/add-tutor`, tutorialData);
 
       Swal.fire({
         title: "Success!",

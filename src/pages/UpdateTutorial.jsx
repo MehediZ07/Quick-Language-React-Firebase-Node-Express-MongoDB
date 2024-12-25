@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 
 export default function UpdateTutorial() {
+  const [loading, setLoading] = useState(true);
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
@@ -28,9 +29,10 @@ export default function UpdateTutorial() {
     const { data } = await axiosSecure.get(`/tutors/${user?.email}?id=${id}`);
 
     setTutor(data[0]);
+    setLoading(false);
   };
 
-  //
+  if (loading) return <span className="loading loading-dots loading-lg"></span>;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

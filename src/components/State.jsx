@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function State() {
+  const [loading, setLoading] = useState(true);
   const [tutorials, setTurorials] = useState([]);
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -9,16 +10,17 @@ export default function State() {
   }, []);
 
   const fetchAlltutor = async () => {
-    const { data: tutors } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/tutors`
-    );
-    const { data: user } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/users`
-    );
+    const { data: tutors } = await axios.get(`http://localhost:5000/tutors`);
+    const { data: user } = await axios.get(`http://localhost:5000/users`);
 
     setTurorials(tutors);
     setUsers(user);
+    setLoading(false);
   };
+  if (loading) return <span className="loading loading-dots loading-lg"></span>;
+
+  if (!tutorials || !users)
+    return <span className="loading loading-dots loading-lg"></span>;
 
   const review = tutorials?.map((obj) => obj.review);
 

@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 export default function MyBookings() {
+  const [loading, setLoading] = useState(true);
   const axiosSecure = useAxiosSecure();
   const [booked, setBooked] = useState([]);
   const { user } = useContext(AuthContext);
@@ -20,11 +21,14 @@ export default function MyBookings() {
     const { data } = await axiosSecure.get(`/booked/${user?.email}`);
 
     setBooked(data);
+    setLoading(false);
   };
   useEffect(() => {
     fetchAllBids();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  if (loading) return <span className="loading loading-dots loading-lg"></span>;
 
   const handleAddReview = async (e) => {
     e.preventDefault();
@@ -43,7 +47,7 @@ export default function MyBookings() {
 
     try {
       const response = await axios.put(
-        `${import.meta.env.VITE_API_URL}/add-review`,
+        `http://localhost:5000/add-review`,
         tutorialData
       );
 
@@ -70,7 +74,7 @@ export default function MyBookings() {
   return (
     <section className="container px-4 mx-auto my-12">
       <div className="flex items-center gap-x-3">
-        <h2 className="text-lg font-medium text-gray-800 ">My Bookings</h2>
+        <h2 className="text-lg font-medium text-gray-500 ">My Bookings</h2>
 
         <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
           {booked.length} Bookings
@@ -82,7 +86,7 @@ export default function MyBookings() {
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
             <div className="overflow-hidden border border-gray-200 md:rounded-lg">
               <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+                <thead className="bg-base-200">
                   <tr>
                     <th className="py-3.5 px-4  font-normal text-left text-gray-500">
                       Image & Tutorial Title
@@ -111,7 +115,7 @@ export default function MyBookings() {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="bg-base-100 divide-y divide-gray-200">
                   {booked.map((item) => (
                     <tr key={item?._id}>
                       <td>
