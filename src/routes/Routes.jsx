@@ -3,20 +3,18 @@ import Main from "../layouts/Main";
 import Home from "../pages/Home";
 import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
-import JobDetails from "../pages/JobDetails";
-// import AddJob from "../pages/AddJob";
+
 import ErrorPage from "../pages/ErrorPage";
-// import MyPostedJobs from "../pages/MyPostedJobs";
+
 import UpdateJob from "../pages/UpdateJob";
 import PrivateRoute from "./PrivateRoute";
-import MyBids from "../pages/MyBids";
-import BidRequests from "../pages/BidRequests";
-// import AllJobs from "../pages/AllJobs";
+
 import MyProfile from "../pages/Authentication/MyProfile";
 import AddTutorials from "../pages/AddTutorials";
 import AllTutorial from "../pages/AllTutorial";
 import MyPostedTutorial from "../pages/MyPostedTutorial";
 import TutorialDetails from "../pages/TutorialDetails";
+import MyBookings from "../pages/MyBookings";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -75,7 +73,7 @@ const router = createBrowserRouter([
         path: "/My-bookings",
         element: (
           <PrivateRoute>
-            <MyBids />
+            <MyBookings />
           </PrivateRoute>
         ),
       },
@@ -84,14 +82,6 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyPostedTutorial />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/bid-requests",
-        element: (
-          <PrivateRoute>
-            <BidRequests />
           </PrivateRoute>
         ),
       },

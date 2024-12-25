@@ -130,6 +130,7 @@ export default function AddTutorials() {
                   name="language"
                   className="mt-1 block min-w-28 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300 focus:outline-none"
                 >
+                  <option value="Bangla">Bangla</option>
                   <option value="English">English</option>
                   <option value="Spanish">Spanish</option>
                   <option value="French">French</option>

@@ -66,6 +66,7 @@ export default function AllTutorial() {
             value={filter}
           >
             <option value="">Filter By Category</option>
+            <option value="Bangla">Bangla</option>
             <option value="English">English</option>
             <option value="Spanish">Spanish</option>
             <option value="French">French</option>
@@ -90,7 +91,7 @@ export default function AllTutorial() {
                 aria-label="Enter Job Title"
               />
 
-              <button className="px-1  md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
+              <button className="px-1  md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-[#8A2BE280] rounded-md hover:bg-[#007BFF80] focus:bg-[#007BFF80] focus:outline-none">
                 Search
               </button>
             </div>
@@ -122,7 +123,10 @@ export default function AllTutorial() {
             <option value={20}>20</option>
             <option value={50}>50</option>
           </select>
-          <button onClick={handleReset} className="btn -order-1 md:order-none">
+          <button
+            onClick={handleReset}
+            className="btn text-white text-lg font-normal -order-1 bg-[#8A2BE280] hover:bg-[#007BFF80] md:order-none"
+          >
             Reset
           </button>
         </div>

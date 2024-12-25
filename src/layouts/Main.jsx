@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import ScrollToTop from "react-scroll-to-top";
 const Main = () => {
   const scrollToTopStyle = {
-    background: "linear-gradient(to bottom, #00e0a1, #00b0e0, #0088cc)",
+    background: "linear-gradient(to bottom, #FF559280, #8A2BE280, #007BFF80)",
   };
   return (
     <div>

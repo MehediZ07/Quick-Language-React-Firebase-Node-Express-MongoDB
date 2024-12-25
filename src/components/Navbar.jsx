@@ -1,11 +1,10 @@
 import { useContext } from "react";
-import logo from "../assets/images/web-logo.png";
+import logo from "../assets/images/webLogo.png";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link, NavLink } from "react-router-dom";
 import TheemToggle from "./TheemToggle";
 import Headroom from "react-headroom";
-// import { CiLogout } from "react-icons/ci";
-// import { IoMdCart } from "react-icons/io";
+
 import { FaCircleUser } from "react-icons/fa6";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -22,7 +21,7 @@ const Navbar = () => {
                   fontWeight: "600",
                   color: "#fff",
                   background:
-                    "linear-gradient(to right, #00e0a1, #00b0e0, #0088cc)",
+                    "linear-gradient(to right, #FF559280, #8A2BE280, #007BFF80)",
                 }
               : {
                   fontWeight: "400",
@@ -44,7 +43,7 @@ const Navbar = () => {
                   fontWeight: "600",
                   color: "#fff",
                   background:
-                    "linear-gradient(to right, #00e0a1, #00b0e0, #0088cc)",
+                    "linear-gradient(to right, #FF559280, #8A2BE280, #007BFF80)",
                 }
               : {
                   fontWeight: "400",
@@ -66,7 +65,7 @@ const Navbar = () => {
                   fontWeight: "600",
                   color: "#fff",
                   background:
-                    "linear-gradient(to right, #00e0a1, #00b0e0, #0088cc)",
+                    "linear-gradient(to right, #FF559280, #8A2BE280, #007BFF80)",
                 }
               : {
                   fontWeight: "400",
@@ -88,7 +87,7 @@ const Navbar = () => {
                   fontWeight: "600",
                   color: "#fff",
                   background:
-                    "linear-gradient(to right, #00e0a1, #00b0e0, #0088cc)",
+                    "linear-gradient(to right, #FF559280, #8A2BE280, #007BFF80)",
                 }
               : {
                   fontWeight: "400",
@@ -110,7 +109,7 @@ const Navbar = () => {
                   fontWeight: "600",
                   color: "#fff",
                   background:
-                    "linear-gradient(to right, #00e0a1, #00b0e0, #0088cc)",
+                    "linear-gradient(to right, #FF559280, #8A2BE280, #007BFF80)",
                 }
               : {
                   fontWeight: "400",
@@ -120,29 +119,6 @@ const Navbar = () => {
           }
         >
           My booked tutors
-        </NavLink>
-      </li>
-
-      <li>
-        <NavLink
-          className="navlink ml-1"
-          to="/bid-requests"
-          style={({ isActive }) =>
-            isActive
-              ? {
-                  fontWeight: "600",
-                  color: "#fff",
-                  background:
-                    "linear-gradient(to right, #00e0a1, #00b0e0, #0088cc)",
-                }
-              : {
-                  fontWeight: "400",
-                  backgroundColor: "#ffffffa0",
-                  color: "#374151",
-                }
-          }
-        >
-          Bid Requests
         </NavLink>
       </li>
     </>
@@ -185,7 +161,7 @@ const Navbar = () => {
                 to="/"
                 className="btn -mt-4 bg-transparent hover:bg-transparent border-none p-2"
               >
-                <img className="h-14 w-28  " src={logo} alt="Logo" />
+                <img className="h-12 w-28  " src={logo} alt="Logo" />
               </Link>
               <TheemToggle></TheemToggle>
             </div>

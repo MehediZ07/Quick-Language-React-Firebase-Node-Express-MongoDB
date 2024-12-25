@@ -17,11 +17,14 @@ export default function Tutorial() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const tutors = tutorial.slice(0, 4);
-
   return (
-    <div className="max-w-7xl mx-auto text-center my-6">
-      <h1>Tutorial</h1>
+    <div className="max-w-7xl mx-auto  my-6">
+      <div className="mb-8">
+        <h2 className="text-3xl font-bold">Our Tutorials</h2>
+        <p className="text-gray-600 mt-2">
+          Roating our all tutorials you can click any of and see details.
+        </p>
+      </div>
 
       <Marquee
         pauseOnHover={true}
@@ -40,12 +43,12 @@ export default function Tutorial() {
           <TutorialCard key={data._id} data={data} index={index} />
         ))}
       </div> */}
-      <Link
+      {/* <Link
         to="/tutorial"
         className="btn mt-4 text-xl hover:bg-pink-200 bg-pink-200 text-pink-500 w-fit font-bold"
       >
         View More
-      </Link>
+      </Link> */}
     </div>
   );
 }
