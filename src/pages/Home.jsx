@@ -2,6 +2,7 @@
 
 import Category from "../components/Category";
 import HeroBanner from "../components/HeroBanner";
+import State from "../components/State";
 // import TabCategories from "../components/TabCategories";
 import Test from "../components/Test";
 import Tutorial from "../components/Tutorial";
@@ -9,8 +10,10 @@ const Home = () => {
   return (
     <div>
       <HeroBanner></HeroBanner>
+      <State />
       <Category />
       <Test></Test>
+
       <Tutorial />
       {/* <TabCategories /> */}
     </div>

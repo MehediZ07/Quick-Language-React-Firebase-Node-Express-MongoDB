@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function TutorialCard({ data, index }) {
   const designIndex = index % 4;
-  console.log(data);
+  // console.log(data);
   return (
     <div className="w-full mx-auto">
       {designIndex === 0 && <DesignOne {...data} />}
