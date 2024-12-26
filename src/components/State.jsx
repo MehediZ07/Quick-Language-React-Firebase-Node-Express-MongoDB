@@ -10,8 +10,12 @@ export default function State() {
   }, []);
 
   const fetchAlltutor = async () => {
-    const { data: tutors } = await axios.get(`http://localhost:5000/tutors`);
-    const { data: user } = await axios.get(`http://localhost:5000/users`);
+    const { data: tutors } = await axios.get(
+      `https://server-swart-six-49.vercel.app/tutors`
+    );
+    const { data: user } = await axios.get(
+      `https://server-swart-six-49.vercel.app/users`
+    );
 
     setTurorials(tutors);
     setUsers(user);

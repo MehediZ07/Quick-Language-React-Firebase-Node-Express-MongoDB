@@ -21,7 +21,9 @@ export default function TutorialDetails() {
   }, []);
 
   const fetchAlltutor = async () => {
-    const { data } = await axios.get(`http://localhost:5000/tutor?id=${id}`);
+    const { data } = await axios.get(
+      `https://server-swart-six-49.vercel.app/tutor?id=${id}`
+    );
 
     setTutor(data);
     setLoading(false);
@@ -60,7 +62,10 @@ export default function TutorialDetails() {
     };
 
     try {
-      await axios.post(`http://localhost:5000/add-book`, bookData);
+      await axios.post(
+        `https://server-swart-six-49.vercel.app/add-book`,
+        bookData
+      );
 
       Swal.fire({
         title: "Congratulation!",

@@ -10,8 +10,9 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { app } from "../firebase/firebase.config";
+
 import axios from "axios";
+import app from "../firebase/firebase.init";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -51,7 +52,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         setUser(currentUser);
         const { data } = await axios.post(
-          `http://localhost:5000/jwt`,
+          `https://server-swart-six-49.vercel.app/jwt`,
           {
             email: currentUser?.email,
           },
@@ -59,9 +60,12 @@ const AuthProvider = ({ children }) => {
         );
       } else {
         setUser(currentUser);
-        const { data } = await axios.get(`http://localhost:5000/logout`, {
-          withCredentials: true,
-        });
+        const { data } = await axios.get(
+          `https://server-swart-six-49.vercel.app/logout`,
+          {
+            withCredentials: true,
+          }
+        );
       }
       setLoading(false);
     });

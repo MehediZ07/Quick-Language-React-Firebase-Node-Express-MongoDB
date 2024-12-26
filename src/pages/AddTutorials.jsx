@@ -28,7 +28,10 @@ export default function AddTutorials() {
     };
 
     try {
-      await axios.post(`http://localhost:5000/add-tutor`, tutorialData);
+      await axios.post(
+        `https://server-swart-six-49.vercel.app/add-tutor`,
+        tutorialData
+      );
 
       Swal.fire({
         title: "Success!",

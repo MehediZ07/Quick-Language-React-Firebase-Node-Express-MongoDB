@@ -41,6 +41,7 @@ export default function Category() {
               {category.logo}
             </span>
             <span className="text-xl font-semibold">{category.name}</span>
+            <span className="ml-2 right-0">{">"}</span>
           </Link>
         ))}
       </div>

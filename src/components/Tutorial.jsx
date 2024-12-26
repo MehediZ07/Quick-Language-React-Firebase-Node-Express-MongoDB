@@ -8,7 +8,9 @@ export default function Tutorial() {
   const [tutorial, setTutorial] = useState([]);
   useEffect(() => {
     const fetchAlltutor = async () => {
-      const { data } = await axios.get(`http://localhost:5000/tutors`);
+      const { data } = await axios.get(
+        `https://server-swart-six-49.vercel.app/tutors`
+      );
 
       setTutorial(data);
     };

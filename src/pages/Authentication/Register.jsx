@@ -37,7 +37,7 @@ const Registration = () => {
 
       const newUser = { email, name, photo };
       axios
-        .post(`http://localhost:5000/users`, newUser, {
+        .post(`https://server-swart-six-49.vercel.app/users`, newUser, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -70,11 +70,15 @@ const Registration = () => {
         photo: user.photoURL,
       };
 
-      await axios.post(`http://localhost:5000/users`, newUser, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      await axios.post(
+        `https://server-swart-six-49.vercel.app/users`,
+        newUser,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       setUser({
         ...user,

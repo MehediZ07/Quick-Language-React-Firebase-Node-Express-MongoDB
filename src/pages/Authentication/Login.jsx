@@ -31,11 +31,15 @@ const Login = () => {
         photo: user.photoURL,
       };
 
-      await axios.post(`http://localhost:5000/users`, newUser, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      await axios.post(
+        `https://server-swart-six-49.vercel.app/users`,
+        newUser,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       navigate(from, { replace: true });
     } catch (err) {

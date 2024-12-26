@@ -47,7 +47,7 @@ export default function MyBookings() {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/add-review`,
+        `https://server-swart-six-49.vercel.app/add-review`,
         tutorialData
       );
 

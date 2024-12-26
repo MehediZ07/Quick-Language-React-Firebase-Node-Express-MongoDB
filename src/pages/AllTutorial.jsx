@@ -19,7 +19,7 @@ export default function AllTutorial() {
     const fetchAllTutorial = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:5000/all-tutors?filter=${filter}&search=${search}&sort=${sort}&page=${currentPage}&size=${itemsPerPage}`
+          `https://server-swart-six-49.vercel.app/all-tutors?filter=${filter}&search=${search}&sort=${sort}&page=${currentPage}&size=${itemsPerPage}`
         );
 
         setTutorial(data.result);
@@ -32,7 +32,7 @@ export default function AllTutorial() {
     fetchAllTutorial();
   }, [filter, search, currentPage, sort, itemsPerPage]);
 
-  if (loading) return <span className="loading loading-dots loading-lg"></span>;
+  // if (loading) return <span className="loading loading-dots loading-lg"></span>;
   const handleReset = () => {
     setFilter("");
     setSearch("");
