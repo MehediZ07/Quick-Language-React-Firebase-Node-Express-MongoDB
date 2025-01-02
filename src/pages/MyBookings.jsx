@@ -6,6 +6,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import ReactStars from "react-stars";
 import Swal from "sweetalert2";
 import axios from "axios";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function MyBookings() {
   const [loading, setLoading] = useState(true);
@@ -28,7 +29,7 @@ export default function MyBookings() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (loading) return <span className="loading loading-dots loading-lg"></span>;
+  if (loading) return <LoadingSpinner></LoadingSpinner>;
 
   const handleAddReview = async (e) => {
     e.preventDefault();

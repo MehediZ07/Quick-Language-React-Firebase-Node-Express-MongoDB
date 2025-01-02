@@ -7,6 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 import Swal from "sweetalert2";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function TutorialDetails() {
   const navigate = useNavigate();
@@ -28,11 +29,11 @@ export default function TutorialDetails() {
     setTutor(data);
     setLoading(false);
   };
-  if (loading) return <span className="loading loading-dots loading-lg"></span>;
+  if (loading) return <LoadingSpinner></LoadingSpinner>;
   const handleSubmit = async (e) => {
     e.preventDefault();
     const tutorId = tutor?._id;
-    const name = tutor?.name;
+    const name = user?.displayName;
     const image = tutor?.image;
     const language = tutor?.language;
     const price = tutor?.price;

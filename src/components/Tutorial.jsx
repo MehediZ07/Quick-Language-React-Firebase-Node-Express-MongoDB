@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import TutorialCard from "./TutorialCard";
 
 import Marquee from "react-fast-marquee";
+import LoadingSpinner from "./LoadingSpinner";
 export default function Tutorial() {
   const [loading, setLoading] = useState(true);
   const [tutorial, setTutorial] = useState([]);
@@ -20,7 +21,7 @@ export default function Tutorial() {
   }, []);
 
   // console.log(tutorial);
-  if (loading) return <span className="loading loading-dots loading-lg"></span>;
+  if (loading) return <LoadingSpinner></LoadingSpinner>;
   if (!tutorial)
     return <span className="loading loading-dots loading-lg"></span>;
   return (

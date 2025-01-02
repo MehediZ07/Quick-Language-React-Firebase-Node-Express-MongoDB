@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function State() {
   const [loading, setLoading] = useState(true);
@@ -21,7 +22,7 @@ export default function State() {
     setUsers(user);
     setLoading(false);
   };
-  if (loading) return <span className="loading loading-dots loading-lg"></span>;
+  if (loading) return <LoadingSpinner></LoadingSpinner>;
 
   if (!tutorials || !users)
     return <span className="loading loading-dots loading-lg"></span>;

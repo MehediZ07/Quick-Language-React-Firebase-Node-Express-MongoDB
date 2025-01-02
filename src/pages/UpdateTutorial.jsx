@@ -10,6 +10,7 @@ import addTutorLootie from "../assets/images/AddTutor.json";
 
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function UpdateTutorial() {
   const [loading, setLoading] = useState(true);
@@ -32,7 +33,7 @@ export default function UpdateTutorial() {
     setLoading(false);
   };
 
-  if (loading) return <span className="loading loading-dots loading-lg"></span>;
+  if (loading) return <LoadingSpinner></LoadingSpinner>;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -180,9 +181,8 @@ export default function UpdateTutorial() {
                   type="number"
                   id="review"
                   name="review"
-                  value="0"
+                  value={tutor?.review}
                   disabled
-                  defaultValue={tutor?.review}
                   className="mt-1 w-16 block  px-3 py-2 text-gray-500 focus:outline-none rounded-md"
                 />
               </div>

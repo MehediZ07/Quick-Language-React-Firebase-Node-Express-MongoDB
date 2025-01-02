@@ -121,6 +121,28 @@ const Navbar = () => {
           My booked tutors
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          className="navlink ml-1"
+          to="/My-Request"
+          style={({ isActive }) =>
+            isActive
+              ? {
+                  fontWeight: "600",
+                  color: "#fff",
+                  background:
+                    "linear-gradient(to right, #FF559280, #8A2BE280, #007BFF80)",
+                }
+              : {
+                  fontWeight: "400",
+                  backgroundColor: "#ffffffa0",
+                  color: "#374151",
+                }
+          }
+        >
+          My Tutorial Request
+        </NavLink>
+      </li>
     </>
   );
   return (

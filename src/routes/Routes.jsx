@@ -15,6 +15,7 @@ import MyPostedTutorial from "../pages/MyPostedTutorial";
 import TutorialDetails from "../pages/TutorialDetails";
 import MyBookings from "../pages/MyBookings";
 import UpdateTutorial from "../pages/UpdateTutorial";
+import MyTutorialRequest from "../pages/MyTutorialRequest";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -82,6 +83,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyPostedTutorial />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/My-Request",
+        element: (
+          <PrivateRoute>
+            <MyTutorialRequest />
           </PrivateRoute>
         ),
       },

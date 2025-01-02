@@ -1,79 +1,36 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 import useAxiosSecure from "../hooks/useAxiosSecure";
-import Swal from "sweetalert2";
 
-import { FaEdit } from "react-icons/fa";
-import { MdOutlineDeleteForever } from "react-icons/md";
 import LoadingSpinner from "../components/LoadingSpinner";
-export default function MyPostedTutorial() {
+
+export default function MyTutorialRequest() {
   const [loading, setLoading] = useState(true);
   const axiosSecure = useAxiosSecure();
+  const [bookReq, setbookReq] = useState([]);
   const { user } = useContext(AuthContext);
 
-  const [tutors, setTutors] = useState([]);
-  useEffect(() => {
-    fetchAlltutor();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  const fetchAllBids = async () => {
+    const { data } = await axiosSecure.get(`/bookRequest/${user?.email}`);
 
-  const fetchAlltutor = async () => {
-    const { data } = await axiosSecure.get(`/tutors/${user?.email}`);
-
-    setTutors(data);
+    setbookReq(data);
     setLoading(false);
   };
+  useEffect(() => {
+    fetchAllBids();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (loading) return <LoadingSpinner></LoadingSpinner>;
-  const handleDelete = async (_id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        try {
-          const response = await axiosSecure.delete(`/tutors/${_id}`);
 
-          if (response.data) {
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success",
-            });
-
-            fetchAlltutor();
-          }
-        } catch (error) {
-          console.error(
-            "Error deleting item:",
-            error.response ? error.response.data : error.message
-          );
-
-          Swal.fire({
-            title: "Error!",
-            text: "There was an issue deleting the item.",
-            icon: "error",
-          });
-        }
-      }
-    });
-  };
   return (
-    <section className="container px-4 mx-auto pt-12">
+    <section className="container px-4 mx-auto my-12">
       <div className="flex items-center gap-x-3">
-        <h2 className="text-lg font-medium text-gray-800 ">
-          My Posted Tutorials
-        </h2>
+        <h2 className="text-lg font-medium text-gray-500 ">My Requests</h2>
 
         <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
-          {tutors.length} Tutorials
+          {bookReq.length} Requests
         </span>
       </div>
 
@@ -91,7 +48,13 @@ export default function MyPostedTutorial() {
                       scope="col"
                       className="py-3.5 px-4 text-sm font-normal text-left text-gray-500"
                     >
-                      Name
+                      Request Send by
+                    </th>
+                    <th
+                      scope="col"
+                      className="py-3.5 px-4 text-sm font-normal text-left text-gray-500"
+                    >
+                      Contact Email
                     </th>
 
                     <th
@@ -106,29 +69,11 @@ export default function MyPostedTutorial() {
                     >
                       Language
                     </th>
-                    <th
-                      scope="col"
-                      className="py-3.5 px-4 text-sm font-normal text-left text-gray-500"
-                    >
-                      Review
-                    </th>
-                    <th
-                      scope="col"
-                      className="py-3.5 px-4 text-sm font-normal text-left text-gray-500"
-                    >
-                      Description
-                    </th>
-                    <th
-                      scope="col"
-                      className="py-3.5 px-4 text-sm font-normal text-left text-gray-500"
-                    >
-                      Make Change
-                    </th>
                   </tr>
                 </thead>
                 <tbody className="bg-base-100 divide-y divide-gray-200">
-                  {tutors.map((item) => (
-                    <tr key={item._id}>
+                  {bookReq.map((item) => (
+                    <tr key={item?._id}>
                       <td>
                         <div className="flex items-center gap-3">
                           <div className="avatar">
@@ -152,29 +97,13 @@ export default function MyPostedTutorial() {
                       </td>
 
                       <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
-                        ${item.price}
+                        {item?.email}
                       </td>
                       <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
-                        {item.language}
+                        ${item?.price}
                       </td>
                       <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
-                        {item.review}
-                      </td>
-                      <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
-                        {item.description.substring(0, 18)}...
-                      </td>
-                      <td className="px-4 py-4 flex items-center text-sm text-gray-500 whitespace-nowrap">
-                        <button
-                          onClick={() => handleDelete(item._id)}
-                          className="font-medium text-3xl text-red-400   px-2  py-1 rounded-full "
-                        >
-                          <MdOutlineDeleteForever />
-                        </button>
-                        <Link to={`/update/${item._id}`}>
-                          <button className="font-medium text-2xl  px-2  py-1 rounded-full ">
-                            <FaEdit />
-                          </button>
-                        </Link>
+                        {item?.language}
                       </td>
                     </tr>
                   ))}
