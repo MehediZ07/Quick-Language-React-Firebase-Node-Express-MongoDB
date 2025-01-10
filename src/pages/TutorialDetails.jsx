@@ -30,8 +30,11 @@ export default function TutorialDetails() {
     setLoading(false);
   };
   if (loading) return <LoadingSpinner></LoadingSpinner>;
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
+    if (!user) {
+      navigate("/login", { state: { from: location.pathname } });
+      return;
+    }
     const tutorId = tutor?._id;
     const name = user?.displayName;
     const image = tutor?.image;

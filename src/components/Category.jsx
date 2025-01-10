@@ -22,7 +22,7 @@ export default function Category() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 my-12 px-6 xl:px-0">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 my-12  ">
         {categories.map((category, index) => (
           <Link
             to={`/tutorial/${category.name}`}

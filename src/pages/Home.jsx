@@ -9,7 +9,7 @@ import State from "../components/State";
 import Tutorial from "../components/Tutorial";
 const Home = () => {
   return (
-    <div className="mx-auto">
+    <div className="mx-auto px-2">
       <HeroBanner></HeroBanner>
       <State />
 

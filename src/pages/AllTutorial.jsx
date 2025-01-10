@@ -127,7 +127,7 @@ export default function AllTutorial() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 sm:grid-cols-2 customs:grid-cols-3 xl:grid-cols-4">
           {tutorial?.map((data, index) => (
             <TutorialCard key={data._id} data={data} index={index} />
           ))}

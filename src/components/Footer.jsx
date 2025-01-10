@@ -9,7 +9,7 @@ export default function Footer() {
             to="/"
             className="btn -mt-4 bg-transparent hover:bg-transparent border-none p-2"
           >
-            <img className="h-10 " src={logo} alt="Logo" />
+            <img className="h-10 drop-shadow-custom" src={logo} alt="Logo" />
           </Link>
           <p className="text-sm">
             Sentiments two occasional affronting solicitude travelling and one
@@ -66,13 +66,11 @@ export default function Footer() {
 
         <div>
           <h3 className="font-semibold text-lg text-gray-800 mb-4">
-            Information
+            Our Contacts
           </h3>
-          <ul className="space-y-2 text-sm">
-            <li>Our Contacts</li>
-            <li>Privacy Policy</li>
-            <li>Conditions</li>
-            <li>FAQs</li>
+          <ul className="space-y-2 text-sm lg:-ml-6">
+            <li>Mobile : +8801816312962</li>
+            <li>Email : mehedi26@gmail.com</li>
           </ul>
         </div>
 
@@ -136,26 +134,34 @@ export default function Footer() {
             <span className="text-gray-500 text-sm cursor-default">
               Our Social Links:
             </span>
-            <img
-              src="https://i.ibb.co.com/smtYcjb/img-icons8.png"
-              alt="Visa"
-              className="w-8 h-8 object-cover"
-            />
-            <img
-              src="https://i.ibb.co.com/QdfnqRc/img-icons8.png"
-              alt="Mastercard"
-              className="w-8 h-8 object-cover"
-            />
-            <img
-              src="https://i.ibb.co.com/k4n5kRq/img-icons8.png"
-              alt="Apple Pay"
-              className="w-8 h-8 object-cover"
-            />
-            <img
-              src="https://i.ibb.co.com/NjMMWSL/img-icons8.png"
-              alt="Google Pay"
-              className="w-8 h-8 object-cover"
-            />
+            <a href="https:https://www.facebook.com/">
+              <img
+                src="https://i.ibb.co.com/smtYcjb/img-icons8.png"
+                alt="Facebook"
+                className="w-8 h-8 object-cover"
+              />
+            </a>
+            <a href="https://www.instagram.com/">
+              <img
+                src="https://i.ibb.co.com/QdfnqRc/img-icons8.png"
+                alt="Instagram"
+                className="w-8 h-8 object-cover"
+              />
+            </a>
+            <a href="https://x.com/?mx=2">
+              <img
+                src="https://i.ibb.co.com/k4n5kRq/img-icons8.png"
+                alt="X"
+                className="w-8 h-8 object-cover"
+              />
+            </a>
+            <a href="https://www.youtube.com/">
+              <img
+                src="https://i.ibb.co.com/NjMMWSL/img-icons8.png"
+                alt="Youtube"
+                className="w-8 h-8 object-cover"
+              />
+            </a>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ export default function QuestionAndAnser() {
       <h1 className="text-3xl font-bold text-center text-gray-500 my-10">
         Quick Question & Answer
       </h1>
-      <div className="join join-vertical max-w-7xl w-full px-4">
+      <div className="join join-vertical max-w-7xl w-full ">
         {/* Question 1 */}
         <div className="collapse collapse-arrow join-item border-base-300 border">
           <input type="radio" name="faq-accordion" defaultChecked />
