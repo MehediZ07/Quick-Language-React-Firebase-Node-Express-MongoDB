@@ -56,7 +56,7 @@ export default function MyProfile() {
               />
             </div>
             <div>
-              <h1 className="text-[#97e5d4] font-semibold text-xl">
+              <h1 className="text-[#acea80] font-semibold text-xl">
                 {user ? user.displayName : ""}
               </h1>
               <p className="text-gray-500 italic">{user ? user.email : ""}</p>
@@ -96,7 +96,7 @@ export default function MyProfile() {
             </div>
 
             <div className="form-control mt-6">
-              <button className="btn bg-[#faa2a0] hover:bg-[#f99796] text-white rounded-none">
+              <button className="btn bg-[#acea80b8] hover:bg-[#acea80] text-black  rounded-lg">
                 Update Profile
               </button>
             </div>

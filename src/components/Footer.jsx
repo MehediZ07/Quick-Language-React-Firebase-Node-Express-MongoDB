@@ -66,13 +66,11 @@ export default function Footer() {
 
         <div>
           <h3 className="font-semibold text-lg text-gray-800 mb-4">
-            Information
+            Our Contacts
           </h3>
-          <ul className="space-y-2 text-sm">
-            <li>Our Contacts</li>
-            <li>Privacy Policy</li>
-            <li>Conditions</li>
-            <li>FAQs</li>
+          <ul className="space-y-2 text-sm lg:-ml-6">
+            <li>Mobile : +8801816312962</li>
+            <li>Email : mehedi26@gmail.com</li>
           </ul>
         </div>
 

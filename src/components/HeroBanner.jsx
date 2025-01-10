@@ -16,7 +16,7 @@ export default function HeroBanner() {
     return () => clearInterval(intervalId);
   }, [currentSlide]);
   return (
-    <div className="carousel w-full h-[30rem] text-black text-lg">
+    <div className="carousel w-full h-[25rem] text-black text-lg">
       {/* Slide 1 */}
       <div
         className={`carousel-item relative w-full ${
@@ -25,7 +25,7 @@ export default function HeroBanner() {
       >
         <img
           src="https://i.ibb.co.com/wBt8cCX/istock-000021332103small.jpg"
-          className="w-full opacity-60 object-cover h-[30rem]"
+          className="w-full opacity-60 object-cover h-[25rem]"
           alt="Slide 1"
         />
         <div className="absolute w-full top-1/2 flex items-center  transform justify-center">
@@ -62,7 +62,7 @@ export default function HeroBanner() {
       >
         <img
           src="https://i.ibb.co.com/vqN8Yps/languages.jpg"
-          className="w-full opacity-60 object-cover h-[30rem]"
+          className="w-full opacity-60 object-cover h-[25rem]"
           alt="Slide 2"
         />
         <div className="absolute w-full top-1/2 flex items-center  transform justify-center">
@@ -99,7 +99,7 @@ export default function HeroBanner() {
       >
         <img
           src="https://i.ibb.co.com/4VQmGbS/language-think.webp"
-          className="w-full opacity-60 object-cover h-[30rem]"
+          className="w-full opacity-60 object-cover h-[25rem]"
           alt="Slide 3"
         />
         <div className="absolute w-full top-1/2 flex items-center  transform justify-center">
@@ -136,7 +136,7 @@ export default function HeroBanner() {
       >
         <img
           src="https://i.ibb.co.com/BVkfhcD/Blog-how-to-set-your-language-in-COOL-01.png"
-          className="w-full opacity-60 object-cover h-[30rem]"
+          className="w-full opacity-60 object-cover h-[25rem]"
           alt="Slide 4"
         />
         <div className="absolute w-full top-1/2 flex items-center  transform justify-center">
