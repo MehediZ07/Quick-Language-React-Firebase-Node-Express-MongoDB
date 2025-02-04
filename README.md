@@ -38,9 +38,17 @@ This is a single page web application. This project is an Online Languages Tutor
 16. **axios**
 17. **asionsecure**
 
-## Requirement Document
+## Clone the Repository
+**git clone [https://github.com/MehediZ07/Medicine-Hub-with-MERN-Stripe.git]**
 
-[Requirement Document Link](https://docs.google.com/document/d/16R23ERHWl6b66uT0GQe3TugsJElXyIpI5-nujbxk7FU/edit?tab=t.0#heading=h.jy72ww6o29yu).
+## Install Dependencies
+**npm install**
+
+## Set Up Firebase Configuration
+**Create a .env file and add your Firebase API keys.**
+
+## Start the Development Server
+**npm run dev**
 
 ## Live Link Firebase deploy
 
