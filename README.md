@@ -39,7 +39,7 @@ This is a single page web application. This project is an Online Languages Tutor
 17. **asionsecure**
 
 ## Clone the Repository
-**git clone [[https://github.com/MehediZ07/Medicine-Hub-with-MERN-Stripe.git](https://github.com/MehediZ07/Medicine-Hub-with-MERN-Stripe.https://github.com/MehediZ07/Quick-Language-React-Firebase-Node-Express-MongoDB.git)]**
+**git clone https://github.com/MehediZ07/Quick-Language-React-Firebase-Node-Express-MongoDB.git**
 
 ## Install Dependencies
 **npm install**
