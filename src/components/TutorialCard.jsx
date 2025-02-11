@@ -23,7 +23,7 @@ const DesignOne = ({ image, title, price, description, _id }) => (
         src={image}
         alt=""
       />
-      <h3 className=" -mt-2  mr-6 ml-4 text-center font-semibold text-white italic">
+      <h3 className=" -mt-2  p-2 text-center font-semibold text-white italic">
         {title}
       </h3>
     </div>
@@ -61,7 +61,7 @@ const DesignTwo = ({ image, title, price, description, _id }) => (
         src={image}
         alt=""
       />
-      <h3 className="-mt-2 mr-6 ml-4 text-center font-semibold text-white italic">
+      <h3 className="-mt-2 pr-2 text-center font-semibold text-white italic">
         {title}
       </h3>
     </div>
@@ -96,7 +96,7 @@ const DesignThree = ({ image, title, price, description, _id }) => (
         src={image}
         alt=""
       />
-      <h3 className="-mt-2 mr-6 ml-4 text-center font-semibold text-white italic">
+      <h3 className="-mt-2 pr-2 text-center font-semibold text-white italic">
         {title}
       </h3>
     </div>
@@ -132,7 +132,7 @@ const DesignFour = ({ image, title, price, description, _id }) => (
         src={image}
         alt=""
       />
-      <h3 className="-mt-2 mr-6 ml-4 text-center font-semibold text-white italic">
+      <h3 className="-mt-2 pr-2 text-center font-semibold text-white italic">
         {title}
       </h3>
     </div>

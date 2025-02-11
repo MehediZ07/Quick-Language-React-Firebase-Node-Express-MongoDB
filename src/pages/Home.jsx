@@ -9,15 +9,17 @@ import State from "../components/State";
 import Tutorial from "../components/Tutorial";
 const Home = () => {
   return (
-    <div className="mx-auto px-2">
+    <div className="mx-auto ">
       <HeroBanner></HeroBanner>
-      <State />
+      <div className="px-2">
+        <State />
 
-      <Category />
+        <Category />
 
-      <Tutorial />
-      <OffersSection />
-      <QuestionAndAnser />
+        <Tutorial />
+        <OffersSection />
+        <QuestionAndAnser />
+      </div>
     </div>
   );
 };

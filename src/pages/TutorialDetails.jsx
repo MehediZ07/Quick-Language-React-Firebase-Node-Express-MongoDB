@@ -105,7 +105,7 @@ export default function TutorialDetails() {
           <img
             src={image}
             alt={title}
-            className="w-full md:w-1/3 object-cover"
+            className="w-full md:w-1/3 object-cover h-[350px]"
           />
           <div className="p-6 flex-1">
             <h1 className="text-2xl font-bold text-gray-500 mb-2">{title}</h1>
