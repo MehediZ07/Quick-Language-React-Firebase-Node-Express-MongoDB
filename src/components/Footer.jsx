@@ -70,7 +70,7 @@ export default function Footer() {
           </h3>
           <ul className="space-y-2 text-sm lg:-ml-6">
             <li>Mobile : +8801816312962</li>
-            <li>Email : mehedi26@gmail.com</li>
+            <li>Email : mehedi.lm26@gmail.com</li>
           </ul>
         </div>
 

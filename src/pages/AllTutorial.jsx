@@ -87,7 +87,7 @@ export default function AllTutorial() {
                 aria-label="Enter Job Title"
               />
 
-              <button className="px-1  md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-[#8A2BE280] rounded-md hover:bg-[#007BFF80] focus:bg-[#007BFF80] focus:outline-none">
+              <button className="px-1  md:px-4 py-3 text-sm font-medium tracking-wider uppercase transition-colors duration-300 transform bg-[#acea80c7] rounded-md hover:bg-[#8A2BE280] focus:bg-[#8A2BE280] focus:outline-none text-black">
                 Search
               </button>
             </div>
@@ -121,7 +121,7 @@ export default function AllTutorial() {
           </select>
           <button
             onClick={handleReset}
-            className="btn text-white text-lg font-normal -order-1 bg-[#8A2BE280] hover:bg-[#007BFF80] md:order-none"
+            className="btn text-black text-lg font-medium -order-1 bg-[#acea80c7] hover:bg-[#8A2BE280] md:order-none"
           >
             Reset
           </button>
