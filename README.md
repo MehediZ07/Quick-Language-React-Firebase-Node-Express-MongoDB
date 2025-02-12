@@ -4,6 +4,14 @@
 
 This is a single page web application. This project is an Online Languages Tutor Booking Platform, designed to connect users with tutors across various languages and subjects. It simplifies the process of finding, reviewing, and booking tutors through an interactive and user-friendly interface.
 
+## Key Features:
+
+1. **Real-time user progress tracking.**
+2. **Manage tutorials and booking.**
+3. **Secure user authentication with Firebase and secure private API with Jwt.**
+
+## Technologies Used: React.js, Firebase, Express.js, MongoDB
+
 ## List of React Fundamental concepts used in the project
 
 1. **JSX (JavaScript XML)**
@@ -15,8 +23,6 @@ This is a single page web application. This project is an Online Languages Tutor
 7. **useEffect Hook**
 8. **CReact Router (Routing)**
 9. **Conditional Rendering**
-10. **Express**
-11. **MongoDb**
 
 ## List of npm packge
 
@@ -39,15 +45,19 @@ This is a single page web application. This project is an Online Languages Tutor
 17. **asionsecure**
 
 ## Clone the Repository
+
 **git clone https://github.com/MehediZ07/Quick-Language-React-Firebase-Node-Express-MongoDB.git**
 
 ## Install Dependencies
+
 **npm install**
 
 ## Set Up Firebase Configuration
+
 **Create a .env file and add your Firebase API keys.**
 
 ## Start the Development Server
+
 **npm run dev**
 
 ## Live Link Firebase deploy
